@@ -1,0 +1,3884 @@
+{
+  "soap11:Envelope": {
+    "$": { "xmlns:soap11": "http://schemas.xmlsoap.org/soap/envelope/" },
+    "soap11:Header": [
+      {
+        "work:WorkContext": [
+          {
+            "_": "rO0ABXdNABd3ZWJsb2dpYy5hcHAuY25lcy1lYXItMQAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABTEuMy42AAA=",
+            "$": { "xmlns:work": "http://oracle.com/weblogic/soap/workarea/" }
+          }
+        ]
+      }
+    ],
+    "soap11:Body": [
+      {
+        "est:responseLocalizarEstabelecimentoSaude": [
+          {
+            "$": {
+              "xmlns:est": "http://servicos.saude.gov.br/cnes/v1r0/estabelecimentosaudeservice"
+            },
+            "res:ResultadosLocalizacaoEstabelecimentoSaude": [
+              {
+                "$": {
+                  "xmlns:res": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadoslocalizacaoestabelecimentosaude"
+                },
+                "res1:ResultadoLocalizacaoEstabelecimentoSaude": [
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "5621801",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3304555621801",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "SMS CSE LAPA AP 10",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "SMS RIO CSE LAPA AP 10",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA DO RIACHUELO",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "43",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "CENTRO",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "20230010",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330455",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "RIO DE JANEIRO",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-06-25",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "11890229741",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "RENATO BERGALLO BEZERRA CARDOSO",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "0",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "32316026",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "0",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "32316031",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "cselapa@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.18130",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.91440",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.18130\",\"-22.91440\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "6695566",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3304556695566",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "SMS PS CASS AP 10",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "SMS RIO PS CASS AP 10",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA AFONSO CAVALCANTE",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "455",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "SUBSOLO 1",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "CIDADE NOVA",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "20211901",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330455",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "RIO DE JANEIRO",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2018-11-21",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "46597964772",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "ANA MARIA FERNANDES DA SILVA",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "29763332",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "anamengo@terra.com.br",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.20536",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.91121",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.20536\",\"-22.91121\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "9079696",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303309079696",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO SAPE",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA E",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "S/N",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "SAPE",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24315610",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "05548370723",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "VANESSA DOS SANTOS FERREIRA",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfsape@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.10415",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.88490",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.10415\",\"-22.88490\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2298791",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302298791",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO JONATHAS BOTELHO JOSE SUARES BLANCO",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA JONATHAS BOTELHO",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "60",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "RUA B",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "CUBANGO",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24240415",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "11981921788",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "KEILA KALEINE MARINS VIEIRA FELIX",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfjbotelho@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "0013021",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303300013021",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO MARUI JORGE LUIZ CAMACHO RODRIGUES",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SEUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA MARUI GRANDE",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "15",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "BARRETO",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24110814",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "10995053723",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "DAYANNA DE OLIVEIRA CALADO",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfmarui@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2298775",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302298775",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DA NOVA BRASILIA ANTONIO NICO LOPEZ",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA ZALMIR GARCIA",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "S/N",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "NOVA BRASILIA",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "ENGENHOCA",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24110491",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "05819283775",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "KAMILA RANGEL MENDES DO ROSARIO",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26226535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfnbrasilia@gmai.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2298821",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302298821",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO CANTAGALO HAIDEE SANTAMARIA",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "AV NELSON DE OLIVEIRA E SILVA",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "63",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "CANTAGALO",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24322385",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "09425475784",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "MICHELE LADEIRA PIMENTEL FERRAZ VALLE",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfcantagalo@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2282216",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302282216",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO SOUZA SOARES JOSE ANTONIO ECHEVERRIA BIANCHI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "RUA LIONS CLUBE",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "37",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "SOUZA SOARES",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "SANTA ROSA",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24230520",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "05667552701",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "FERNANDA CARVALHO LOPES",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfssoares@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2282224",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302282224",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO CAFUBA I ERNESTO CHE GUEVARA I",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "AVENIDA DOUTOR RAUL DE OLIVEIRA RODRIGUES",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "03",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "QD 179",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "PIRATININGA",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24350630",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "11399702750",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "KARLA BERNARDES ESTEVES TAVARES",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfcafuba1@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "$": {
+                      "xmlns:res1": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadolocalizacaoestabelecimentosaude"
+                    },
+                    "res1:EstabelecimentoSaude": [
+                      {
+                        "cod:CodigoCNES": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                            },
+                            "ns2:codigo": [
+                              {
+                                "_": "2282232",
+                                "$": {
+                                  "xmlns:ns2": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cod:CodigoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:cod": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                            },
+                            "ns24:codigo": [
+                              {
+                                "_": "3303302282232",
+                                "$": {
+                                  "xmlns:ns24": "http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeFantasia": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "MMF DO MARITIMOS CARLOS RAFAEL RODRIGUEZ",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:nomeEmpresarial": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns7:Nome": [
+                              {
+                                "_": "FUNDACAO MUNICIPAL DE SAUDE DE NITEROI",
+                                "$": {
+                                  "xmlns:ns7": "http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "end:Endereco": [
+                          {
+                            "$": {
+                              "xmlns:end": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                            },
+                            "ns11:nomeLogradouro": [
+                              {
+                                "_": "TRAVESSA CARLOS SILVA",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:numero": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:complemento": [
+                              {
+                                "_": "MARITIMOS",
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                }
+                              }
+                            ],
+                            "ns11:Bairro": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns13:descricaoBairro": [
+                                  {
+                                    "_": "BARRETO",
+                                    "$": {
+                                      "xmlns:ns13": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:CEP": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns14:numeroCEP": [
+                                  {
+                                    "_": "24111000",
+                                    "$": {
+                                      "xmlns:ns14": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns11:Municipio": [
+                              {
+                                "$": {
+                                  "xmlns:ns11": "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco"
+                                },
+                                "ns15:codigoMunicipio": [
+                                  {
+                                    "_": "330330",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:nomeMunicipio": [
+                                  {
+                                    "_": "NITEROI",
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    }
+                                  }
+                                ],
+                                "ns15:UF": [
+                                  {
+                                    "$": {
+                                      "xmlns:ns15": "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio"
+                                    },
+                                    "ns16:codigoUF": [
+                                      {
+                                        "_": "33",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ],
+                                    "ns16:siglaUF": [
+                                      {
+                                        "_": "RJ",
+                                        "$": {
+                                          "xmlns:ns16": "http://servicos.saude.gov.br/schema/corporativo/v1r1/uf"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:dataAtualizacao": [
+                          {
+                            "_": "2019-07-02",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ],
+                        "dir:Diretor": [
+                          {
+                            "$": {
+                              "xmlns:dir": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                            },
+                            "ns26:CPF": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns5:numeroCPF": [
+                                  {
+                                    "_": "11409025713",
+                                    "$": {
+                                      "xmlns:ns5": "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns26:nome": [
+                              {
+                                "$": {
+                                  "xmlns:ns26": "http://servicos.saude.gov.br/schema/cnes/v1r0/diretor"
+                                },
+                                "ns27:Nome": [
+                                  {
+                                    "_": "FERNANDA APARECIDA COSTA DE SOUZA",
+                                    "$": {
+                                      "xmlns:ns27": "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "tip:tipoUnidade": [
+                          {
+                            "$": {
+                              "xmlns:tip": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                            },
+                            "ns28:codigo": [
+                              {
+                                "_": "01",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ],
+                            "ns28:descricao": [
+                              {
+                                "_": "POSTO DE SAUDE",
+                                "$": {
+                                  "xmlns:ns28": "http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Telefone": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "2",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "COMERCIAL",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26224348",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns18:TipoTelefone": [
+                              {
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                },
+                                "ns19:codigoTipoTelefone": [
+                                  {
+                                    "_": "4",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ],
+                                "ns19:descricaoTipoTelefone": [
+                                  {
+                                    "_": "FAX",
+                                    "$": {
+                                      "xmlns:ns19": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "ns18:DDD": [
+                              {
+                                "_": "21",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ],
+                            "ns18:numeroTelefone": [
+                              {
+                                "_": "26216535",
+                                "$": {
+                                  "xmlns:ns18": "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Email": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns20:descricaoEmail": [
+                              {
+                                "_": "pmfmaritimos@gmail.com",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ],
+                            "ns20:tipoEmail": [
+                              {
+                                "_": "P",
+                                "$": {
+                                  "xmlns:ns20": "http://servicos.saude.gov.br/schema/corporativo/v1r2/email"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:Localizacao": [
+                          {
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            },
+                            "ns30:longitude": [
+                              {
+                                "_": "-43.104",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:latitude": [
+                              {
+                                "_": "-22.883",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ],
+                            "ns30:geoJson": [
+                              {
+                                "_": "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"-43.104\",\"-22.883\"]}}",
+                                "$": {
+                                  "xmlns:ns30": "http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "dad:perteceSistemaSUS": [
+                          {
+                            "_": "false",
+                            "$": {
+                              "xmlns:dad": "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "pag:Paginacao": [
+                  {
+                    "$": {
+                      "xmlns:pag": "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/paginacao"
+                    },
+                    "pag:posicaoRegistroInicio": ["01"],
+                    "pag:quantidadeRegistrosPorPagina": ["10"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

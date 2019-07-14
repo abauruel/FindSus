@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">findsus</string>
+    <string name="facebook_app_id">650411902107709</string>
+    <string name="fb_login_protocol_scheme">650411902107709</string>
 </resources>
