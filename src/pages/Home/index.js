@@ -7,6 +7,7 @@ import {
   PermissionsAndroid,
   TouchableOpacity,
   ScrollView,
+  Animated,
 } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -14,7 +15,17 @@ import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import api from '../../services/api';
 
-import { Container, Footer, Image } from './styles';
+import MapStyle from '../../styles/mapStyle.json';
+
+import {
+  Container,
+  Footer,
+  Image,
+  List,
+  ItemLista,
+  ContainerButton,
+  IconDescription,
+} from './styles';
 import FooterAppImage from '../../assets/bottom.png';
 
 const PLACE = 'res1:EstabelecimentoSaude';
@@ -28,23 +39,41 @@ export default class Home extends Component {
       longitudeDelta: 0.0134,
     },
     estabelecimentos: [],
+    visibleList: false,
+    footerVisible: true,
     tipoUnidades: [
-      { cod: '01', descricao: 'POSTO DE SAÚDE' },
-      { cod: '02', descricao: 'CENTRO DE SAUDE/UNIDADE BASICA' },
-      { cod: '04', descricao: 'POLICLINICA' },
-      { cod: '05', descricao: 'HOSPITAL GERAL' },
-      { cod: '07', descricao: 'HOSPITAL ESPECIALIZADO' },
-      { cod: '20', descricao: 'PRONTO SOCORRO GERAL' },
-      { cod: '21', descricao: 'PRONTO SOCORRO ESPECIALIZADO' },
-      { cod: '73', descricao: 'PRONTO ATENDIMENTO (UPA)' },
+      { cod: '01', descricao: 'POSTO DE SAÚDE', icone: 'clinic-medical' },
+      { cod: '02', descricao: 'CENTRO DE SAUDE/UNIDADE BASICA', icone: 'clinic-medical' },
+
+      { cod: '20', descricao: 'PRONTO SOCORRO GERAL', icone: 'hospital-alt' },
+      {
+        cod: '73',
+        descricao: 'PRONTO ATENDIMENTO',
+        icone: 'hospital',
+      },
     ],
+    unidadeSelecionada: {
+      cod: null,
+      descricao: null,
+    },
   };
 
   async componentDidMount() {
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-
+    const tiposUnidades = this.state.tipoUnidades.filter(item => item.cod !== '73');
+    this.setState({
+      tipoUnidades: [
+        ...tiposUnidades,
+        {
+          cod: '73',
+          descricao: 'PRONTO ATENDIMENTO',
+          icone: 'hospital-alt',
+          checked: true,
+        },
+      ],
+    });
     if (permission === 'granted') {
       navigator.geolocation.getCurrentPosition(
         ({ coords: { latitude, longitude } }) => {
@@ -77,8 +106,8 @@ export default class Home extends Component {
             'loc:latitude': region.latitude,
           },
           'tip:tipoUnidade': {
-            'tip:codigo': '01',
-            'tip:descricao': 'POSTO DE SAÚDE',
+            'tip:codigo': this.state.unidadeSelecionada.cod,
+            'tip:descricao': this.state.unidadeSelecionada.descricao,
           },
           'pag:Paginacao': {
             'pag:posicaoRegistroInicio': '01',
@@ -111,11 +140,53 @@ export default class Home extends Component {
     return null;
   };
 
+  handleList = () => {
+    switch (this.state.visibleList) {
+      case false:
+        this.setState({ visibleList: true, footerVisible: false });
+        break;
+      case true:
+        this.setState({ visibleList: false });
+        break;
+      default:
+        this.state.visibleList;
+    }
+  };
+
+  handleSelectedItem = (item) => {
+    this.setState({
+      unidadeSelecionada: {
+        cod: item.cod,
+        descricao: item.descricao,
+      },
+    });
+
+    const _TiposEstabelecimentos = this.state.tipoUnidades.filter(id => id.cod !== item.cod);
+    _TiposEstabelecimentos.forEach((element) => {
+      delete element.checked;
+    });
+
+    this.setState({
+      visibleList: false,
+      footerVisible: true,
+      tipoUnidades: [
+        ..._TiposEstabelecimentos,
+        {
+          cod: item.cod,
+          descricao: item.descricao,
+          icone: item.icone,
+          checked: true,
+        },
+      ],
+    });
+  };
+
   render() {
     const { latitude, longitude } = this.state.region;
 
     return (
       <Container>
+        <Animated.View />
         <MapView
           ref={map => (this.mapView = map)}
           region={{
@@ -127,6 +198,7 @@ export default class Home extends Component {
           showsUserLocation
           loadingEnabled
           style={styles.mapView}
+          customMapStyle={MapStyle}
         >
           {this.state.estabelecimentos.length > 0 ? (
             this.state.estabelecimentos.map(place => (
@@ -152,32 +224,60 @@ export default class Home extends Component {
             />
           )}
         </MapView>
-        <Footer>
-          <Image source={FooterAppImage}>
-            {/* <FlatList
-              data={this.state.tipoUnidades}
-              keyExtractor={item => String(item.cod)}
-              renderItem={({ item }) => <Text>{item.descricao}</Text>}
-            /> */}
-            <TouchableOpacity>
-              <Icon name="list-ul" size={30} color="#FFF" />
-            </TouchableOpacity>
-
-            <ScrollView style={styles.placeContainer} horizontal>
-              {this.state.estabelecimentos.map(place => (
-                <View key={place.nome} style={styles.place}>
-                  <Text>{place.nome}</Text>
-                  <Text>{place.latitude}</Text>
-                  <Text>{place.longitude}</Text>
-                </View>
-              ))}
-            </ScrollView>
-            <View>
-              <TouchableOpacity onPress={this.handleclick}>
-                <Icon name="search-location" size={30} color="#fff" />
-              </TouchableOpacity>
+        {this.state.visibleList ? (
+          <List>
+            <View style={{ marginTop: 5 }}>
+              <FlatList
+                data={this.state.tipoUnidades}
+                keyExtractor={item => String(item.cod)}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    onPress={() => this.handleSelectedItem(item)}
+                    style={styles.buttonLista}
+                  >
+                    <ContainerButton>
+                      <IconDescription>
+                        <Icon name={item.icone} size={18} color="#FFF" style={{ padding: 5 }} />
+                        <ItemLista>{item.descricao}</ItemLista>
+                      </IconDescription>
+                      <View>
+                        {item.checked ? (
+                          <Icon name="check-circle" size={15} color="#FFF" />
+                        ) : (
+                          <Icon name="circle" size={15} color="#FFF" />
+                        )}
+                      </View>
+                    </ContainerButton>
+                  </TouchableOpacity>
+                )}
+              />
             </View>
-          </Image>
+          </List>
+        ) : null}
+
+        <Footer>
+          {this.state.footerVisible && (
+            <Image source={FooterAppImage}>
+              <TouchableOpacity onPress={this.handleList}>
+                <Icon name="list-ul" size={30} color="#FFF" />
+              </TouchableOpacity>
+
+              <ScrollView style={styles.placeContainer} horizontal>
+                {this.state.estabelecimentos.map(place => (
+                  <View key={place.nome} style={styles.place}>
+                    <Text>{place.nome}</Text>
+                    <Text>{place.latitude}</Text>
+                    <Text>{place.longitude}</Text>
+                  </View>
+                ))}
+              </ScrollView>
+              <View>
+                <TouchableOpacity onPress={this.handleclick}>
+                  <Icon name="search-location" size={40} color="#fff" />
+                </TouchableOpacity>
+              </View>
+            </Image>
+          )}
         </Footer>
       </Container>
     );
@@ -188,6 +288,12 @@ const styles = StyleSheet.create({
   bottom: {
     backgroundColor: '#0c5dab',
   },
+
+  buttonLista: {
+    marginHorizontal: 20,
+    marginTop: 10,
+  },
+
   mapView: {
     bottom: 0,
     left: 0,
@@ -202,9 +308,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     maxHeight: 200,
     width: 200,
-  },
-  placeContainer: {
-    maxHeight: 100,
-    width: '100%',
   },
 });
