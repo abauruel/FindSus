@@ -168,6 +168,9 @@ export default class Home extends Component {
       default:
         this.state.visibleList;
     }
+    this.setState({
+      estabelecimentos: [],
+    });
   };
 
   handleSelectedItem = (item) => {
@@ -197,6 +200,19 @@ export default class Home extends Component {
         },
       ],
     });
+  };
+
+  handleViewListResults = () => {
+    switch (this.state.exibirListadeResultados) {
+      case false:
+        this.setState({ exibirListadeResultados: true });
+        break;
+      case true:
+        this.setState({ exibirListadeResultados: false });
+        break;
+      default:
+        break;
+    }
   };
 
   render() {
@@ -264,8 +280,10 @@ export default class Home extends Component {
               </TouchableOpacity>
 
               {this.state.estabelecimentos.length > 0 && (
-                <TouchableOpacity onPress={() => this.setState({ exibirListadeResultados: true })}>
-                  <Text>Exibir lista</Text>
+                <TouchableOpacity onPress={this.handleViewListResults}>
+                  <Text>
+                    {!this.state.exibirListadeResultados ? 'Exibir lista' : 'Ocultar lista'}
+                  </Text>
                 </TouchableOpacity>
               )}
 
