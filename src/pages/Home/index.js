@@ -176,6 +176,7 @@ export default class Home extends Component {
         cod: item.cod,
         descricao: item.descricao,
       },
+      estabelecimentos: [],
     });
 
     const _TiposEstabelecimentos = this.state.tipoUnidades.filter(id => id.cod !== item.cod);
