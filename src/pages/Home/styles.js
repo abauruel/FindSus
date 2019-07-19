@@ -15,7 +15,8 @@ export const Footer = styled.View`
   right: 0;
 `;
 
-export const Image = styled.ImageBackground`
+export const Image = styled.View`
+  background: #0c5dab;
   height: 100%;
   width: 100%;
   display: flex;
@@ -55,4 +56,15 @@ export const ContainerButton = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+export const ListaResultados = styled.View`
+  background: #0c5dab;
+`;
+export const ViewFooter = styled.View`
+  margin-bottom: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0c5dab;
 `;

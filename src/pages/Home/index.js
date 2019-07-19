@@ -13,6 +13,7 @@ import MapView, { Marker } from 'react-native-maps';
 
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import api from '../../services/api';
 
 import MapStyle from '../../styles/mapStyle.json';
@@ -25,8 +26,11 @@ import {
   ItemLista,
   ContainerButton,
   IconDescription,
+  ListaResultados,
+  ViewFooter,
 } from './styles';
 import FooterAppImage from '../../assets/bottom.png';
+import pinsus from '../../assets/pinSus200.png';
 
 const PLACE = 'res1:EstabelecimentoSaude';
 
@@ -41,6 +45,7 @@ export default class Home extends Component {
     estabelecimentos: [],
     visibleList: false,
     footerVisible: true,
+    exibirListadeResultados: false,
     tipoUnidades: [
       { cod: '01', descricao: 'POSTO DE SAÚDE', icone: 'clinic-medical' },
       { cod: '02', descricao: 'CENTRO DE SAUDE/UNIDADE BASICA', icone: 'clinic-medical' },
@@ -96,7 +101,6 @@ export default class Home extends Component {
 
   handleclick = async () => {
     const { estabelecimentos, resposta, region } = this.state;
-    console.tron.log('clicado');
 
     api.createRequest({
       'est:requestLocalizarEstabelecimentoSaude': {
@@ -129,9 +133,22 @@ export default class Home extends Component {
         estabelecimentos: [
           ...this.state.estabelecimentos,
           {
+            codcnes: place[PLACE][0]['cod:CodigoCNES'][0]['ns2:codigo'][0]._,
             nome: place[PLACE][0]['dad:nomeFantasia'][0]['ns7:Nome'][0]._,
+            logradouro: place[PLACE][0]['end:Endereco'][0]['ns11:nomeLogradouro'][0]._,
+            numero: place[PLACE][0]['end:Endereco'][0]['ns11:numero'][0]._,
+            bairro:
+              place[PLACE][0]['end:Endereco'][0]['ns11:Bairro'][0]['ns13:descricaoBairro'][0]._,
+            cep: place[PLACE][0]['end:Endereco'][0]['ns11:CEP'][0]['ns14:numeroCEP'][0]._,
+            municipio:
+              place[PLACE][0]['end:Endereco'][0]['ns11:Municipio'][0]['ns15:nomeMunicipio'][0]._,
+            uf:
+              place[PLACE][0]['end:Endereco'][0]['ns11:Municipio'][0]['ns15:UF'][0][
+                'ns16:siglaUF'
+              ][0]._,
             longitude: place[PLACE][0]['dad:Localizacao'][0]['ns30:longitude'][0]._,
             latitude: place[PLACE][0]['dad:Localizacao'][0]['ns30:latitude'][0]._,
+            ultimaAtualizacao: place[PLACE][0]['dad:dataAtualizacao'][0]._,
           },
         ],
       });
@@ -186,7 +203,6 @@ export default class Home extends Component {
 
     return (
       <Container>
-        <Animated.View />
         <MapView
           ref={map => (this.mapView = map)}
           region={{
@@ -198,7 +214,6 @@ export default class Home extends Component {
           showsUserLocation
           loadingEnabled
           style={styles.mapView}
-          customMapStyle={MapStyle}
         >
           {this.state.estabelecimentos.length > 0 ? (
             this.state.estabelecimentos.map(place => (
@@ -211,7 +226,8 @@ export default class Home extends Component {
                   })
                 }
                 title={place.nome}
-                description={place.nome}
+                description={`${place.logradouro}, ${place.numero}`}
+                image={pinsus}
               />
             ))
           ) : (
@@ -224,7 +240,43 @@ export default class Home extends Component {
             />
           )}
         </MapView>
-        {this.state.visibleList ? (
+        {this.state.exibirListadeResultados && (
+          <ViewFooter>
+            <ScrollView horizontal>
+              {this.state.estabelecimentos.map(place => (
+                <View key={place.nome} style={styles.place}>
+                  <Text>{place.nome}</Text>
+                  <Text>{`${place.logradouro} ${place.numero} ${place.bairro}`}</Text>
+                  <Text>{place.cep}</Text>
+                  <Text>{`${place.municipio} - ${place.uf}`}</Text>
+                  <Text>{place.ultimaAtualizacao}</Text>
+                </View>
+              ))}
+            </ScrollView>
+          </ViewFooter>
+        )}
+        <Footer>
+          {this.state.footerVisible && (
+            <Image>
+              <TouchableOpacity onPress={this.handleList}>
+                <Icon name="list-ul" size={30} color="#FFF" />
+              </TouchableOpacity>
+
+              {this.state.estabelecimentos.length > 0 && (
+                <TouchableOpacity onPress={() => this.setState({ exibirListadeResultados: true })}>
+                  <Text>Exibir lista</Text>
+                </TouchableOpacity>
+              )}
+
+              <View>
+                <TouchableOpacity onPress={this.handleclick}>
+                  <Icon name="search-location" size={40} color="#fff" />
+                </TouchableOpacity>
+              </View>
+            </Image>
+          )}
+        </Footer>
+        {this.state.visibleList && (
           <List>
             <View style={{ marginTop: 5 }}>
               <FlatList
@@ -253,32 +305,7 @@ export default class Home extends Component {
               />
             </View>
           </List>
-        ) : null}
-
-        <Footer>
-          {this.state.footerVisible && (
-            <Image source={FooterAppImage}>
-              <TouchableOpacity onPress={this.handleList}>
-                <Icon name="list-ul" size={30} color="#FFF" />
-              </TouchableOpacity>
-
-              <ScrollView style={styles.placeContainer} horizontal>
-                {this.state.estabelecimentos.map(place => (
-                  <View key={place.nome} style={styles.place}>
-                    <Text>{place.nome}</Text>
-                    <Text>{place.latitude}</Text>
-                    <Text>{place.longitude}</Text>
-                  </View>
-                ))}
-              </ScrollView>
-              <View>
-                <TouchableOpacity onPress={this.handleclick}>
-                  <Icon name="search-location" size={40} color="#fff" />
-                </TouchableOpacity>
-              </View>
-            </Image>
-          )}
-        </Footer>
+        )}
       </Container>
     );
   }
@@ -302,11 +329,11 @@ const styles = StyleSheet.create({
     top: 0,
   },
   place: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#0c5dab',
     borderRadius: 3,
     marginBottom: 10,
     marginHorizontal: 20,
     maxHeight: 200,
-    width: 200,
+    width: 250,
   },
 });
