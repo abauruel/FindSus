@@ -299,7 +299,7 @@ export default class Home extends Component {
           <List>
             <View style={{ marginTop: 5 }}>
               <FlatList
-                data={this.state.tipoUnidades}
+                data={this.state.tipoUnidades.sort((a, b) => a.cod < b.cod)}
                 keyExtractor={item => String(item.cod)}
                 renderItem={({ item }) => (
                   <TouchableOpacity
