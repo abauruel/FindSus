@@ -28,9 +28,13 @@ import {
   IconDescription,
   ListaResultados,
   ViewFooter,
+  ImageTipoEstabelecimento,
+  ConteudoEstabelecimentos,
+  ViewIcone,
 } from './styles';
 import FooterAppImage from '../../assets/bottom.png';
 import pinsus from '../../assets/pinSus200.png';
+import pinuser from '../../assets/pinUser.png';
 
 const PLACE = 'res1:EstabelecimentoSaude';
 
@@ -178,6 +182,7 @@ export default class Home extends Component {
       unidadeSelecionada: {
         cod: item.cod,
         descricao: item.descricao,
+        icone: item.icone,
       },
       estabelecimentos: [],
     });
@@ -229,31 +234,44 @@ export default class Home extends Component {
             longitudeDelta: 0.0421,
           }}
           showsUserLocation
+          showsMyLocationButton
+          showsScale
           loadingEnabled
           style={styles.mapView}
         >
           {this.state.estabelecimentos.length > 0 ? (
-            this.state.estabelecimentos.map(place => (
+            [
               <Marker
-                key={place.nome}
-                coordinate={
-                  (LatLng = {
-                    latitude: Number(place.latitude),
-                    longitude: Number(place.longitude),
-                  })
-                }
-                title={place.nome}
-                description={`${place.logradouro}, ${place.numero}`}
-                image={pinsus}
-              />
-            ))
+                key="user"
+                coordinate={{
+                  latitude: this.state.region.latitude,
+                  longitude: this.state.region.longitude,
+                }}
+                image={pinuser}
+              />,
+              this.state.estabelecimentos.map(place => (
+                <Marker
+                  key={place.nome}
+                  coordinate={
+                    (LatLng = {
+                      latitude: Number(place.latitude),
+                      longitude: Number(place.longitude),
+                    })
+                  }
+                  title={place.nome}
+                  description={`${place.logradouro}, ${place.numero}`}
+                  // image={pinsus}
+                  pinColor="blue"
+                />
+              )),
+            ]
           ) : (
             <Marker
               coordinate={{
-                latitude: -22.9144,
-                longitude: -43.1813,
+                latitude: this.state.region.latitude,
+                longitude: this.state.region.longitude,
               }}
-              title="Hello"
+              image={pinuser}
             />
           )}
         </MapView>
@@ -262,11 +280,28 @@ export default class Home extends Component {
             <ScrollView horizontal>
               {this.state.estabelecimentos.map(place => (
                 <View key={place.nome} style={styles.place}>
-                  <Text>{place.nome}</Text>
-                  <Text>{`${place.logradouro} ${place.numero} ${place.bairro}`}</Text>
-                  <Text>{place.cep}</Text>
-                  <Text>{`${place.municipio} - ${place.uf}`}</Text>
-                  <Text>{place.ultimaAtualizacao}</Text>
+                  <ImageTipoEstabelecimento>
+                    <ViewIcone>
+                      <Icon
+                        name={this.state.unidadeSelecionada.icone}
+                        color="#FFF"
+                        size={30}
+                        style={styles.icone}
+                      />
+                    </ViewIcone>
+                  </ImageTipoEstabelecimento>
+                  <ConteudoEstabelecimentos>
+                    <Text style={{ fontWeight: 'bold', color: '#FFF' }}>{place.nome}</Text>
+                    <Text style={{ color: '#FFF' }}>
+                      {`${place.logradouro} ${place.numero} ${place.bairro}`}
+                    </Text>
+                    <Text style={{ color: '#FFF' }}>{place.cep}</Text>
+                    <Text style={{ color: '#FFF' }}>{`${place.municipio} - ${place.uf}`}</Text>
+
+                    <Text style={{ color: 'red', fontWeight: 'bold' }}>
+                      {`Ultima Atualização: ${place.ultimaAtualizacao}`}
+                    </Text>
+                  </ConteudoEstabelecimentos>
                 </View>
               ))}
             </ScrollView>
@@ -348,11 +383,13 @@ const styles = StyleSheet.create({
     top: 0,
   },
   place: {
-    backgroundColor: '#0c5dab',
-    borderRadius: 3,
+    backgroundColor: 'rgba(0, 0, 180, 0.4)',
+    borderRadius: 10,
+
+    flexDirection: 'row',
+
     marginBottom: 10,
     marginHorizontal: 20,
     maxHeight: 200,
-    width: 250,
   },
 });

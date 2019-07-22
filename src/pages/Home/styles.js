@@ -58,7 +58,7 @@ export const ContainerButton = styled.View`
   align-items: center;
 `;
 export const ListaResultados = styled.View`
-  background: #0c5dab;
+  background: #ccc;
 `;
 export const ViewFooter = styled.View`
   margin-bottom: 80px;
@@ -66,5 +66,24 @@ export const ViewFooter = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
+`;
+export const ImageTipoEstabelecimento = styled.View`
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
   background: #0c5dab;
+  margin: 20px 10px;
+  box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+`;
+
+export const ConteudoEstabelecimentos = styled.View`
+  flex-direction: column;
+  width: 180px;
+  flex-wrap: wrap;
+  margin: 15px 10px;
+`;
+export const ViewIcone = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
