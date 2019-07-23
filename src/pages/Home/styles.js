@@ -87,3 +87,20 @@ export const ViewIcone = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+export const ViewUnidadeSelecionada = styled.View`
+  background: rgba(12, 93, 171, 0.6);
+  margin: 10px;
+  height: 70px;
+  border-radius: 5px;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const TextUnidadeSelecionada = styled.Text`
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+`;

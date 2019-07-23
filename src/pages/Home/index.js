@@ -31,6 +31,8 @@ import {
   ImageTipoEstabelecimento,
   ConteudoEstabelecimentos,
   ViewIcone,
+  ViewUnidadeSelecionada,
+  TextUnidadeSelecionada,
 } from './styles';
 import FooterAppImage from '../../assets/bottom.png';
 import pinsus from '../../assets/pinSus200.png';
@@ -64,6 +66,7 @@ export default class Home extends Component {
     unidadeSelecionada: {
       cod: null,
       descricao: null,
+      icone: null,
     },
   };
 
@@ -275,6 +278,20 @@ export default class Home extends Component {
             />
           )}
         </MapView>
+        {this.state.unidadeSelecionada.cod && (
+          <ViewUnidadeSelecionada>
+            <Icon
+              name={this.state.unidadeSelecionada.icone}
+              color="#FFF"
+              size={15}
+              style={{ padding: 10 }}
+            />
+            <TextUnidadeSelecionada>
+              {this.state.unidadeSelecionada.descricao}
+            </TextUnidadeSelecionada>
+          </ViewUnidadeSelecionada>
+        )}
+
         {this.state.exibirListadeResultados && (
           <ViewFooter>
             <ScrollView horizontal>
@@ -383,7 +400,7 @@ const styles = StyleSheet.create({
     top: 0,
   },
   place: {
-    backgroundColor: 'rgba(0, 0, 180, 0.4)',
+    backgroundColor: 'rgba(12, 93, 171, 0.4)',
     borderRadius: 10,
 
     flexDirection: 'row',
