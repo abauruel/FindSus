@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   width: 100%;
-  background: transparent;
+  background: #0c5dab;
 `;
 
 export const Footer = styled.View`
@@ -13,18 +13,21 @@ export const Footer = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: 10px;
 `;
 
 export const Image = styled.View`
   background: #0c5dab;
   height: 100%;
-  width: 100%;
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
   padding-left: 30px;
   padding-right: 30px;
+  border-radius: 5px;
+  margin-left: 10px;
 `;
 export const List = styled.View`
   flex: 1;
@@ -66,6 +69,7 @@ export const ViewFooter = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 4px;
 `;
 export const ImageTipoEstabelecimento = styled.View`
   width: 80px;
@@ -103,4 +107,12 @@ export const TextUnidadeSelecionada = styled.Text`
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
+`;
+
+export const ViewLoading = styled.View`
+  background: rgba(12, 93, 171, 0.5);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;

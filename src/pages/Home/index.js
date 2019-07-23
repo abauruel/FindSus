@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import {
+  ActivityIndicator,
   View,
   Text,
   StyleSheet,
@@ -8,12 +8,15 @@ import {
   TouchableOpacity,
   ScrollView,
   Animated,
+  Dimensions,
 } from 'react-native';
+
 import MapView, { Marker } from 'react-native-maps';
 
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+import { async } from 'rxjs/internal/scheduler/async';
 import api from '../../services/api';
 
 import MapStyle from '../../styles/mapStyle.json';
@@ -33,15 +36,20 @@ import {
   ViewIcone,
   ViewUnidadeSelecionada,
   TextUnidadeSelecionada,
+  ViewLoading,
 } from './styles';
 import FooterAppImage from '../../assets/bottom.png';
-import pinsus from '../../assets/pinSus200.png';
+
 import pinuser from '../../assets/pinUser.png';
+import pinPlace from '../../assets/pinPlace.png';
 
 const PLACE = 'res1:EstabelecimentoSaude';
+const { height, width } = Dimensions.get('window');
 
 export default class Home extends Component {
   state = {
+    loading: false,
+    isMapReady: false,
     region: {
       latitude: 0,
       longitude: 0,
@@ -107,6 +115,7 @@ export default class Home extends Component {
   }
 
   handleclick = async () => {
+    this.setState({ loading: true });
     const { estabelecimentos, resposta, region } = this.state;
 
     api.createRequest({
@@ -160,8 +169,8 @@ export default class Home extends Component {
         ],
       });
     });
-    console.tron.log(this.state.estabelecimentos);
-    return null;
+
+    this.setState({ loading: false });
   };
 
   handleList = () => {
@@ -223,6 +232,12 @@ export default class Home extends Component {
     }
   };
 
+  onMapLayout = () => {
+    this.setState({
+      isMapReady: true,
+    });
+  };
+
   render() {
     const { latitude, longitude } = this.state.region;
 
@@ -230,17 +245,16 @@ export default class Home extends Component {
       <Container>
         <MapView
           ref={map => (this.mapView = map)}
-          region={{
+          initialRegion={{
             latitude: this.state.region.latitude,
             longitude: this.state.region.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
           showsUserLocation
-          showsMyLocationButton
-          showsScale
           loadingEnabled
           style={styles.mapView}
+          onLayout={this.onMapLayout}
         >
           {this.state.estabelecimentos.length > 0 ? (
             [
@@ -263,7 +277,7 @@ export default class Home extends Component {
                   }
                   title={place.nome}
                   description={`${place.logradouro}, ${place.numero}`}
-                  // image={pinsus}
+                  image={pinPlace}
                   pinColor="blue"
                 />
               )),
@@ -278,6 +292,13 @@ export default class Home extends Component {
             />
           )}
         </MapView>
+
+        {this.state.loading && (
+          <ViewLoading>
+            <ActivityIndicator size="large" color="#FFF" />
+          </ViewLoading>
+        )}
+
         {this.state.unidadeSelecionada.cod && (
           <ViewUnidadeSelecionada>
             <Icon
@@ -291,10 +312,14 @@ export default class Home extends Component {
             </TextUnidadeSelecionada>
           </ViewUnidadeSelecionada>
         )}
-
         {this.state.exibirListadeResultados && (
           <ViewFooter>
-            <ScrollView horizontal>
+            <ScrollView
+              horizontal
+              showHorizontalScrollIndicator={false}
+              pagingEnabled
+              onMomentumScrollEnd={(e) => {}}
+            >
               {this.state.estabelecimentos.map(place => (
                 <View key={place.nome} style={styles.place}>
                   <ImageTipoEstabelecimento>
@@ -333,12 +358,11 @@ export default class Home extends Component {
 
               {this.state.estabelecimentos.length > 0 && (
                 <TouchableOpacity onPress={this.handleViewListResults}>
-                  <Text>
+                  <Text style={{ color: '#FFF', fontSize: 20 }}>
                     {!this.state.exibirListadeResultados ? 'Exibir lista' : 'Ocultar lista'}
                   </Text>
                 </TouchableOpacity>
               )}
-
               <View>
                 <TouchableOpacity onPress={this.handleclick}>
                   <Icon name="search-location" size={40} color="#fff" />
