@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 export const Container = styled.View`
   flex: 1;
   width: 100%;
+  background: #fff;
 `;
 export const Content = styled.View`
   display: flex;
