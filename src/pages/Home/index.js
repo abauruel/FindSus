@@ -9,6 +9,7 @@ import {
   ScrollView,
   Animated,
   Dimensions,
+  Fragment
 } from 'react-native';
 
 import MapView, { Marker } from 'react-native-maps';
@@ -16,7 +17,8 @@ import MapView, { Marker } from 'react-native-maps';
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import { async } from 'rxjs/internal/scheduler/async';
+import InfoPlace from '../../components/infoPlace'
+
 import api from '../../services/api';
 
 import MapStyle from '../../styles/mapStyle.json';
@@ -79,10 +81,11 @@ export default class Home extends Component {
   };
 
   async componentDidMount() {
+    const { tipoUnidades } = this.state;
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-    const tiposUnidades = this.state.tipoUnidades.filter(item => item.cod !== '73');
+    const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
     this.setState({
       tipoUnidades: [
         ...tiposUnidades,
@@ -93,6 +96,11 @@ export default class Home extends Component {
           checked: true,
         },
       ],
+      unidadeSelecionada: {
+        cod: '73',
+        descricao: 'PRONTO ATENDIMENTO',
+        icone: 'hospital-alt',
+      },
     });
     if (permission === 'granted') {
       navigator.geolocation.getCurrentPosition(
@@ -116,7 +124,7 @@ export default class Home extends Component {
 
   handleclick = async () => {
     this.setState({ loading: true });
-    const { estabelecimentos, resposta, region } = this.state;
+    const { unidadeSelecionada, region } = this.state;
 
     api.createRequest({
       'est:requestLocalizarEstabelecimentoSaude': {
@@ -126,8 +134,8 @@ export default class Home extends Component {
             'loc:latitude': region.latitude,
           },
           'tip:tipoUnidade': {
-            'tip:codigo': this.state.unidadeSelecionada.cod,
-            'tip:descricao': this.state.unidadeSelecionada.descricao,
+            'tip:codigo': unidadeSelecionada.cod,
+            'tip:descricao': unidadeSelecionada.descricao,
           },
           'pag:Paginacao': {
             'pag:posicaoRegistroInicio': '01',
@@ -239,35 +247,46 @@ export default class Home extends Component {
   };
 
   render() {
-    const { latitude, longitude } = this.state.region;
+    const {
+      region,
+      estabelecimentos,
+      loading,
+      unidadeSelecionada,
+      exibirListadeResultados,
+    } = this.state;
 
     return (
       <Container>
         <MapView
           ref={map => (this.mapView = map)}
           initialRegion={{
-            latitude: this.state.region.latitude,
-            longitude: this.state.region.longitude,
+            latitude: region.latitude,
+            longitude: region.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
           showsUserLocation
+          showsMyLocationButton
           loadingEnabled
           style={styles.mapView}
           onLayout={this.onMapLayout}
         >
-          {this.state.estabelecimentos.length > 0 ? (
+          {estabelecimentos.length > 0 ? (
+
             [
+
               <Marker
                 key="user"
                 coordinate={{
-                  latitude: this.state.region.latitude,
-                  longitude: this.state.region.longitude,
+                  latitude: region.latitude,
+                  longitude: region.longitude,
                 }}
                 image={pinuser}
               />,
-              this.state.estabelecimentos.map(place => (
+              estabelecimentos.map(place => (
                 <Marker
+                  ref={mark => (place.mark = mark)}
+                  anchor={{ x: 0, y: 0 }}
                   key={place.nome}
                   coordinate={
                     (LatLng = {
@@ -275,57 +294,75 @@ export default class Home extends Component {
                       longitude: Number(place.longitude),
                     })
                   }
-                  title={place.nome}
-                  description={`${place.logradouro}, ${place.numero}`}
+
                   image={pinPlace}
                   pinColor="blue"
-                />
-              )),
-            ]
+                >
+                  <InfoPlace
+                    title={place.nome}
+                    description={`${place.logradouro}, ${place.numero}`}
+                    icon={place.icone}
+                    />
+                </Marker>
+
+              ))
+                ]
+
           ) : (
             <Marker
               coordinate={{
-                latitude: this.state.region.latitude,
-                longitude: this.state.region.longitude,
+                latitude: region.latitude,
+                longitude: region.longitude,
               }}
               image={pinuser}
             />
           )}
         </MapView>
 
-        {this.state.loading && (
+        {loading && (
           <ViewLoading>
             <ActivityIndicator size="large" color="#FFF" />
           </ViewLoading>
         )}
 
-        {this.state.unidadeSelecionada.cod && (
+        {unidadeSelecionada.cod && (
           <ViewUnidadeSelecionada>
-            <Icon
-              name={this.state.unidadeSelecionada.icone}
-              color="#FFF"
-              size={15}
-              style={{ padding: 10 }}
-            />
-            <TextUnidadeSelecionada>
-              {this.state.unidadeSelecionada.descricao}
-            </TextUnidadeSelecionada>
+            <Icon name={unidadeSelecionada.icone} color="#FFF" size={15} style={{ padding: 10 }} />
+            <TextUnidadeSelecionada>{unidadeSelecionada.descricao}</TextUnidadeSelecionada>
           </ViewUnidadeSelecionada>
         )}
-        {this.state.exibirListadeResultados && (
+        {exibirListadeResultados && (
           <ViewFooter>
             <ScrollView
               horizontal
               showHorizontalScrollIndicator={false}
               pagingEnabled
-              onMomentumScrollEnd={(e) => {}}
+              onMomentumScrollEnd={(e) => {
+                const scrolled = e.nativeEvent.contentOffset.x;
+
+                const place = scrolled > 0 ? scrolled / Dimensions.get('window').width : 0;
+                const { latitude, longitude, mark } = estabelecimentos[Math.round(place)];
+
+                this.mapView.animateCamera(
+                  {
+                    center: {
+                      latitude: Number(latitude),
+                      longitude: Number(longitude),
+                    },
+                  },
+                  1000,
+                );
+                setTimeout(() => {
+                  mark.showCallout();
+                }, 1000);
+              }}
             >
-              {this.state.estabelecimentos.map(place => (
+              {estabelecimentos.map(place => (
                 <View key={place.nome} style={styles.place}>
                   <ImageTipoEstabelecimento>
                     <ViewIcone>
                       <Icon
-                        name={this.state.unidadeSelecionada.icone}
+                        name={unidadeSelecionada.icone}
                         color="#FFF"
                         size={30}
                         style={styles.icone}
@@ -426,11 +463,12 @@ const styles = StyleSheet.create({
   place: {
     backgroundColor: 'rgba(12, 93, 171, 0.4)',
     borderRadius: 10,
-
     flexDirection: 'row',
 
-    marginBottom: 10,
+    marginBottom: 15,
+
     marginHorizontal: 20,
     maxHeight: 200,
+    width: width - 40,
   },
 });

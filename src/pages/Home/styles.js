@@ -20,7 +20,16 @@ export const Image = styled.View`
   background: #0c5dab;
   height: 100%;
   width: 95%;
-  display: flex;
+
+  position: absolute;
+  bottom: 0;
+  shadow-color: #0000;
+  shadow-offset: 0 0;
+  shadow-opacity: 0.2;
+  shadow-radius: 10;
+  elevation: 3;
+  border: 1px solid #ddd;
+
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
@@ -77,7 +86,6 @@ export const ImageTipoEstabelecimento = styled.View`
   border-radius: 50px;
   background: #0c5dab;
   margin: 20px 10px;
-  box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 `;
 
 export const ConteudoEstabelecimentos = styled.View`
@@ -101,6 +109,13 @@ export const ViewUnidadeSelecionada = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  shadow-color: #0000;
+  shadow-offset: 0 0;
+  shadow-opacity: 0.2;
+  shadow-radius: 10;
+  elevation: 3;
+  border: 1px solid #ddd;
 `;
 export const TextUnidadeSelecionada = styled.Text`
   color: #fff;
