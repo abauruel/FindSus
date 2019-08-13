@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "826077349192",
+    "firebase_url": "https://findplacesus.firebaseio.com",
+    "project_id": "findplacesus",
+    "storage_bucket": "findplacesus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826077349192:android:9e8a8ae7655098ed",
+        "android_client_info": {
+          "package_name": "com.findsus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826077349192-3i3mjaurj1r6c4rv5dd3rhf5o6agqo8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkA0fUjxvbn15JC9ERfE9A3sc2qrM6ntc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826077349192-3i3mjaurj1r6c4rv5dd3rhf5o6agqo8r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

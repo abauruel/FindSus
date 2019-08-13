@@ -3,6 +3,10 @@ package com.findsus;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
+
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+
 import com.airbnb.android.react.maps.MapsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -39,6 +43,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseAuthPackage(),
+
             new MapsPackage(),
             new RNGoogleSigninPackage(),
             new VectorIconsPackage(),

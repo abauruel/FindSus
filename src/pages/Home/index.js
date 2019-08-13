@@ -9,15 +9,15 @@ import {
   ScrollView,
   Animated,
   Dimensions,
-  Fragment
+  Fragment,
 } from 'react-native';
 
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import InfoPlace from '../../components/infoPlace'
+import InfoPlace from '../../components/infoPlace';
 
 import api from '../../services/api';
 
@@ -103,27 +103,30 @@ export default class Home extends Component {
       },
     });
     if (permission === 'granted') {
-      navigator.geolocation.getCurrentPosition(
-        ({ coords: { latitude, longitude } }) => {
-          this.setState({
-            region: {
-              latitude,
-              longitude,
-            },
-          });
-        },
-        () => {}, // erro
-        {
-          timeout: 2000,
-          enableHighAccuracy: true,
-          maximumAge: 1000,
-        },
-      );
+      this.getCurrentPosition();
     }
   }
 
   handleclick = async () => {
     this.setState({ loading: true });
+
+    navigator.geolocation.watchPosition(
+      ({ coords: { latitude, longitude } }) => {
+        this.setState({
+          region: {
+            latitude,
+            longitude,
+          },
+        });
+      },
+      () => {}, // erro
+      {
+        timeout: 2000,
+        enableHighAccuracy: true,
+        maximumAge: 1000,
+      },
+    );
+
     const { unidadeSelecionada, region } = this.state;
 
     api.createRequest({
@@ -246,6 +249,33 @@ export default class Home extends Component {
     });
   };
 
+  getCurrentPosition = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            error: null,
+          },
+        });
+        this.mapView.animateCamera(
+          {
+            center: {
+              latitude: this.state.region.latitude,
+              longitude: this.state.region.longitude,
+            },
+          },
+          1000,
+        );
+        console.tron.log(position);
+      },
+      (error) => {
+        console.tron.log(error);
+      },
+    );
+  };
+
   render() {
     const {
       region,
@@ -270,11 +300,10 @@ export default class Home extends Component {
           loadingEnabled
           style={styles.mapView}
           onLayout={this.onMapLayout}
+          onMapReady={this.viewPosition}
         >
           {estabelecimentos.length > 0 ? (
-
             [
-
               <Marker
                 key="user"
                 coordinate={{
@@ -294,20 +323,19 @@ export default class Home extends Component {
                       longitude: Number(place.longitude),
                     })
                   }
-
-                  image={pinPlace}
                   pinColor="blue"
+                  image={pinPlace}
                 >
-                  <InfoPlace
-                    title={place.nome}
-                    description={`${place.logradouro}, ${place.numero}`}
-                    icon={place.icone}
+                  <Callout tooltip>
+                    <InfoPlace
+                      title={place.nome}
+                      description={place.logradouro}
+                      icon={this.state.unidadeSelecionada.icone}
                     />
+                  </Callout>
                 </Marker>
-
-              ))
-                ]
-
+              )),
+            ]
           ) : (
             <Marker
               coordinate={{
@@ -327,10 +355,13 @@ export default class Home extends Component {
 
         {unidadeSelecionada.cod && (
           <ViewUnidadeSelecionada>
-            <Icon name={unidadeSelecionada.icone} color="#FFF" size={15} style={{ padding: 10 }} />
+            <Icon name={unidadeSelecionada.icone} color="#FFF" size={15} style={{ padding: 10 }}/> 
             <TextUnidadeSelecionada>{unidadeSelecionada.descricao}</TextUnidadeSelecionada>
           </ViewUnidadeSelecionada>
         )}
+        <TouchableOpacity onPress={this.getCurrentPosition}>
+          <Text>I am here</Text>
+        </TouchableOpacity>
         {exibirListadeResultados && (
           <ViewFooter>
             <ScrollView
@@ -456,6 +487,7 @@ const styles = StyleSheet.create({
   mapView: {
     bottom: 0,
     left: 0,
+    paddingLeft: 5,
     position: 'absolute',
     right: 0,
     top: 0,

@@ -858,6 +858,24 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
+"@react-native-firebase/app-types@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app-types/-/app-types-0.1.2.tgz#cfb1e017559ba55de39caaac27032ac0e73309c7"
+  integrity sha512-J+O1yFzQ5g65dZwzdBKNww67sOUZwggavgNNxXKtvl81Otgo2Vyrsp7qHm8wh/uH6AOYnGVtO/4WSyEMdYV0Fw==
+
+"@react-native-firebase/auth@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-0.1.2.tgz#994148fe6dc91eb1e38e7b6c9b23a374c21f2866"
+  integrity sha512-1/xn2p0OTOy7A7aVtzGmSKJqp3FgPjN360mRMDyTG8Q6xr4gUaPeY9fwam5yxWN9YUPfWs+3e7WXHOY8UZD+Iw==
+  dependencies:
+    "@react-native-firebase/app-types" "0.1.2"
+    "@react-native-firebase/common" "0.1.2"
+
+"@react-native-firebase/common@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/common/-/common-0.1.2.tgz#2644a8c6a1f261ea693b47e57733e2b8859c9197"
+  integrity sha512-t5S3zti4sc0xfR9B0n6V6HoTAnueg7h9VD3uWOUEOttqELnyCtdH06ctF66DXlQn3W3nYIBSNwAPmGD+Ku+Ivg==
+
 "@react-navigation/core@~3.4.1":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.4.2.tgz#bec563e94fde40fbab3730cdc97f22afbb2a1498"
@@ -4968,6 +4986,11 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+opencollective-postinstall@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
+  integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
+
 opn@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/opn/-/opn-3.0.3.tgz#b6d99e7399f78d65c3baaffef1fb288e9b85243a"
@@ -5459,6 +5482,14 @@ react-native-fbsdk@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.10.1.tgz#b3ed4237b1322956f2260c716d49c2ce08514741"
   integrity sha512-/TfpiT7wLdP1ABWk46DhpadbOSXdizWEvrNhLABe+9jK8/ljaCL7nwHj+Xp0Yd6KBnW88in67ukAy2kbfbfZ+A==
+
+react-native-firebase@^5.5.6:
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-firebase/-/react-native-firebase-5.5.6.tgz#17b34ec0d5dc39afaaf0e159fd160f6339e0f707"
+  integrity sha512-AdbpGwKEEiMFgaRar9WOPc8Li4sfxR//WOyNQzxYsQ1fpARC908j7feqy2gu73SLqk4wzIrnlfJWakOe0/Bclg==
+  dependencies:
+    opencollective-postinstall "^2.0.0"
+    prop-types "^15.7.2"
 
 react-native-gesture-handler@^1.3.0:
   version "1.3.0"
