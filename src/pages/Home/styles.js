@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.View`
   flex: 1;
@@ -6,41 +7,8 @@ export const Container = styled.View`
   background: #0c5dab;
 `;
 
-export const Footer = styled.View`
-  background: transparent;
-  height: 80px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 10px;
-`;
-
-export const Image = styled.View`
-  background: #0c5dab;
-  height: 100%;
-  width: 95%;
-
-  position: absolute;
-  bottom: 0;
-  shadow-color: #0000;
-  shadow-offset: 0 0;
-  shadow-opacity: 0.2;
-  shadow-radius: 10;
-  elevation: 3;
-  border: 1px solid #ddd;
-
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 5px;
-  margin-left: 10px;
-`;
 export const List = styled.View`
   flex: 1;
-  background: #0c5dab;
   height: 180px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -52,11 +20,28 @@ export const List = styled.View`
   padding-right: 20px;
 `;
 
+export const LinearColorList = styled(LinearGradient).attrs({
+  colors: ['#1BABE3', '#4CC4D1'],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  flex: 1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding-right: 20px;
+  padding-bottom: 20px;
+`;
+
 export const ItemLista = styled.Text`
   font-weight: bold;
   color: #fff;
   margin: 0 5px;
-  font-size: 16px;
+  font-size: 12px;
 `;
 export const IconDescription = styled.View`
   display: flex;
@@ -69,59 +54,62 @@ export const ContainerButton = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
-export const ListaResultados = styled.View`
-  background: #ccc;
-`;
+
 export const ViewFooter = styled.View`
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   border-radius: 4px;
 `;
-export const ImageTipoEstabelecimento = styled.View`
-  width: 80px;
-  height: 80px;
-  border-radius: 50px;
-  background: #0c5dab;
-  margin: 20px 10px;
-`;
 
 export const ConteudoEstabelecimentos = styled.View`
-  flex-direction: column;
-  width: 180px;
-  flex-wrap: wrap;
-  margin: 15px 10px;
-`;
-export const ViewIcone = styled.View`
-  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  border-width: 1;
+  border-color: #ddd;
+  margin-bottom: 15;
   justify-content: center;
-  align-items: center;
-`;
+  max-height: 200;
+  width: ${props => props.width - 40};
 
-export const ViewUnidadeSelecionada = styled.View`
-  background: rgba(12, 93, 171, 0.6);
-  margin: 10px;
-  height: 70px;
-  border-radius: 5px;
+  display: flex;
 
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  shadow-color: #0000;
-  shadow-offset: 0 0;
-  shadow-opacity: 0.2;
-  shadow-radius: 10;
+  margin-left: 20px;
+  margin-right: 20px;
   elevation: 3;
-  border: 1px solid #ddd;
 `;
+export const ConteudoEstabelecimentosDetalhes = styled.View`
+  flex-direction: row;
+  padding: 10px;
+`;
+export const ConteudoIcone = styled.View`
+  padding: 10px;
+  background: #1babe3;
+  border-radius: 4px;
+`;
+export const ConteudoEndereco = styled.View``;
+
+export const BtnLinear = styled(LinearGradient).attrs({
+  colors: ['#1BABE3', '#4CC4D1'],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  margin: 20px;
+  height: 40px;
+  border-radius: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  elevation: 3;
+`;
+
 export const TextUnidadeSelecionada = styled.Text`
   color: #fff;
-  font-size: 15px;
-  font-weight: bold;
+  margin-left: 20px;
   padding: 10px;
+  font-size: 12px;
 `;
 
 export const ViewLoading = styled.View`

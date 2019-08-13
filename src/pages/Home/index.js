@@ -25,31 +25,36 @@ import MapStyle from '../../styles/mapStyle.json';
 
 import {
   Container,
-  Footer,
-  Image,
   List,
   ItemLista,
   ContainerButton,
   IconDescription,
-  ListaResultados,
   ViewFooter,
-  ImageTipoEstabelecimento,
   ConteudoEstabelecimentos,
-  ViewIcone,
-  ViewUnidadeSelecionada,
   TextUnidadeSelecionada,
   ViewLoading,
+  BtnLinear,
+  ConteudoEstabelecimentosDetalhes,
+  ConteudoIcone,
+  ConteudoEndereco,
+  LinearColorList,
 } from './styles';
-import FooterAppImage from '../../assets/bottom.png';
+
+import Directions from '../../components/Directions'
 
 import pinuser from '../../assets/pinUser.png';
 import pinPlace from '../../assets/pinPlace.png';
 
 const PLACE = 'res1:EstabelecimentoSaude';
-const { height, width } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
+
+
 
 export default class Home extends Component {
   state = {
+    distance: null,
+    duration:null,
+    destination: null,
     loading: false,
     isMapReady: false,
     region: {
@@ -85,6 +90,8 @@ export default class Home extends Component {
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
+
+    console.tron.log(permission)
     const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
     this.setState({
       tipoUnidades: [
@@ -127,7 +134,7 @@ export default class Home extends Component {
       },
     );
 
-    const { unidadeSelecionada, region } = this.state;
+    const { unidadeSelecionada, region, estabelecimentos } = this.state;
 
     api.createRequest({
       'est:requestLocalizarEstabelecimentoSaude': {
@@ -182,6 +189,7 @@ export default class Home extends Component {
     });
 
     this.setState({ loading: false });
+    this.setState({exibirListadeResultados: true})
   };
 
   handleList = () => {
@@ -217,7 +225,7 @@ export default class Home extends Component {
 
     this.setState({
       visibleList: false,
-      footerVisible: true,
+
       tipoUnidades: [
         ..._TiposEstabelecimentos,
         {
@@ -228,6 +236,8 @@ export default class Home extends Component {
         },
       ],
     });
+
+    this.handleViewListResults();
   };
 
   handleViewListResults = () => {
@@ -269,10 +279,12 @@ export default class Home extends Component {
           1000,
         );
         console.tron.log(position);
+
       },
       (error) => {
         console.tron.log(error);
       },
+
     );
   };
 
@@ -301,6 +313,7 @@ export default class Home extends Component {
           style={styles.mapView}
           onLayout={this.onMapLayout}
           onMapReady={this.viewPosition}
+          customMapStyle={MapStyle}
         >
           {estabelecimentos.length > 0 ? (
             [
@@ -331,6 +344,8 @@ export default class Home extends Component {
                       title={place.nome}
                       description={place.logradouro}
                       icon={this.state.unidadeSelecionada.icone}
+                      duration={this.state.duration}
+                      distance={this.state.distance}
                     />
                   </Callout>
                 </Marker>
@@ -345,6 +360,15 @@ export default class Home extends Component {
               image={pinuser}
             />
           )}
+          {this.state.destination &&
+            <Directions
+              origin={region}
+              destination={this.state.destination}
+              onReady={(result)=>{
+                this.setState({ duration: Math.floor(result.duration), distance: Math.floor(result.distance)})
+              }}
+            />
+          }
         </MapView>
 
         {loading && (
@@ -354,14 +378,20 @@ export default class Home extends Component {
         )}
 
         {unidadeSelecionada.cod && (
-          <ViewUnidadeSelecionada>
-            <Icon name={unidadeSelecionada.icone} color="#FFF" size={15} style={{ padding: 10 }}/> 
+          <BtnLinear>
+            <TouchableOpacity onPress={this.handleList}>
+              <Icon name="list-ul" color="#FFF" size={18} style={{ marginLeft: 20 }} />
+            </TouchableOpacity>
             <TextUnidadeSelecionada>{unidadeSelecionada.descricao}</TextUnidadeSelecionada>
-          </ViewUnidadeSelecionada>
+            <TouchableOpacity onPress={this.handleclick}>
+              <Icon name="search" color="#FFF" size={18} style={{ marginRight: 30 }} />
+            </TouchableOpacity>
+          </BtnLinear>
         )}
         <TouchableOpacity onPress={this.getCurrentPosition}>
           <Text>I am here</Text>
         </TouchableOpacity>
+
         {exibirListadeResultados && (
           <ViewFooter>
             <ScrollView
@@ -386,61 +416,39 @@ export default class Home extends Component {
                 setTimeout(() => {
                   mark.showCallout();
                 }, 1000);
+                this.setState({destination: {latitude:Number(latitude), longitude:Number(longitude)}})
               }}
             >
               {estabelecimentos.map(place => (
-                <View key={place.nome} style={styles.place}>
-                  <ImageTipoEstabelecimento>
-                    <ViewIcone>
-                      <Icon
-                        name={unidadeSelecionada.icone}
-                        color="#FFF"
-                        size={30}
-                        style={styles.icone}
-                      />
-                    </ViewIcone>
-                  </ImageTipoEstabelecimento>
-                  <ConteudoEstabelecimentos>
-                    <Text style={{ fontWeight: 'bold', color: '#FFF' }}>{place.nome}</Text>
-                    <Text style={{ color: '#FFF' }}>
-                      {`${place.logradouro} ${place.numero} ${place.bairro}`}
-                    </Text>
-                    <Text style={{ color: '#FFF' }}>{place.cep}</Text>
-                    <Text style={{ color: '#FFF' }}>{`${place.municipio} - ${place.uf}`}</Text>
 
-                    <Text style={{ color: 'red', fontWeight: 'bold' }}>
-                      {`Ultima Atualização: ${place.ultimaAtualizacao}`}
-                    </Text>
+                  <ConteudoEstabelecimentos key={place.nome} width={width}>
+                    <Text style={{ fontWeight: 'bold', paddingLeft: 10,fontSize: 12, marginTop:10 }}>{place.nome}</Text>
+                    <Text style={{paddingLeft:10, fontSize: 12}}>
+                          {`${place.logradouro} ${place.numero} ${place.bairro}`}
+                          </Text>
+                    <ConteudoEstabelecimentosDetalhes>
+                      <ConteudoIcone>
+                          <Icon name={unidadeSelecionada.icone} size={20} color='#FFF'/>
+                        </ConteudoIcone>
+                      <ConteudoEndereco>
+                          <Text style={{paddingLeft:10, fontSize: 12}}>{`Cep: ${place.cep}`}</Text>
+                          <Text style={{paddingLeft:10, fontSize: 12}}>{`${place.municipio} - ${place.uf}`}</Text>
+
+                          <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 12, paddingLeft:10 }}>
+                            {`Ultima Atualização: ${place.ultimaAtualizacao}`}
+                          </Text>
+                          </ConteudoEndereco>
+                    </ConteudoEstabelecimentosDetalhes>
                   </ConteudoEstabelecimentos>
-                </View>
+
               ))}
             </ScrollView>
           </ViewFooter>
         )}
-        <Footer>
-          {this.state.footerVisible && (
-            <Image>
-              <TouchableOpacity onPress={this.handleList}>
-                <Icon name="list-ul" size={30} color="#FFF" />
-              </TouchableOpacity>
 
-              {this.state.estabelecimentos.length > 0 && (
-                <TouchableOpacity onPress={this.handleViewListResults}>
-                  <Text style={{ color: '#FFF', fontSize: 20 }}>
-                    {!this.state.exibirListadeResultados ? 'Exibir lista' : 'Ocultar lista'}
-                  </Text>
-                </TouchableOpacity>
-              )}
-              <View>
-                <TouchableOpacity onPress={this.handleclick}>
-                  <Icon name="search-location" size={40} color="#fff" />
-                </TouchableOpacity>
-              </View>
-            </Image>
-          )}
-        </Footer>
         {this.state.visibleList && (
           <List>
+            <LinearColorList>
             <View style={{ marginTop: 5 }}>
               <FlatList
                 data={this.state.tipoUnidades.sort((a, b) => a.cod < b.cod)}
@@ -448,7 +456,7 @@ export default class Home extends Component {
                 renderItem={({ item }) => (
                   <TouchableOpacity
                     onPress={() => this.handleSelectedItem(item)}
-                    style={styles.buttonLista}
+                    style={{marginHorizontal: 20, marginTop: 10}}
                   >
                     <ContainerButton>
                       <IconDescription>
@@ -467,6 +475,7 @@ export default class Home extends Component {
                 )}
               />
             </View>
+            </LinearColorList>
           </List>
         )}
       </Container>
@@ -475,15 +484,6 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  bottom: {
-    backgroundColor: '#0c5dab',
-  },
-
-  buttonLista: {
-    marginHorizontal: 20,
-    marginTop: 10,
-  },
-
   mapView: {
     bottom: 0,
     left: 0,
@@ -492,15 +492,5 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
-  place: {
-    backgroundColor: 'rgba(12, 93, 171, 0.4)',
-    borderRadius: 10,
-    flexDirection: 'row',
 
-    marginBottom: 15,
-
-    marginHorizontal: 20,
-    maxHeight: 200,
-    width: width - 40,
-  },
 });
