@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { LoginButton } from 'react-native-fbsdk';
-
-import firebase from 'react-native-firebase';
 
 import { facebookLogin, googleLogin } from '../../services/auth';
 
@@ -80,7 +77,7 @@ export default class Screen extends Component {
             <Icon name="user" size={14} color="#0c5dab" style={{ padding: 10 }} />
             <TxtLogin
               placeholder="usuário"
-              onChangeText={login => this.setState({ login })}
+              onChangeText={(login) => this.setState({ login })}
               value={this.state.loginText}
             />
           </ContainerInput>
@@ -89,7 +86,7 @@ export default class Screen extends Component {
             <TxtLogin
               placeholder="senha"
               secureTextEntry
-              onChangeText={password => this.setState({ password })}
+              onChangeText={(password) => this.setState({ password })}
             />
           </ContainerInput>
           <Buttonlogin onPress={this.handleLogin}>

@@ -51,7 +51,7 @@ export const BtnLinear = styled(LinearGradient).attrs({
 })`
   height: 45px;
   width: 250px;
-  border-radius: 50px;
+  border-radius: 8px;
   justify-content: center;
   align-items: center;
 `;
@@ -67,13 +67,14 @@ export const Buttonlogin = styled.TouchableOpacity`
   margin-top: 20px;
   height: 45px;
   width: 250px;
-  border-radius: 50px;
+  border-radius: 8px;
 `;
 
 export const Textbutton = styled.Text`
   color: #fff;
   padding: 10px;
   font-weight: bold;
+  font-family: Helvetica-Normal;
 `;
 
 export const ContainerOr = styled.View`
@@ -88,8 +89,8 @@ export const ButtonloginGoogle = styled.TouchableOpacity`
   margin-top: 20px;
   height: 45px;
   width: 250px;
-  border-radius: 50px;
-  border: 1px solid #999;
+  border-radius: 8px;
+  border: 1px solid #929497;
 `;
 export const GoogleIcon = styled.Image`
   height: 20px;
@@ -100,13 +101,14 @@ export const TextbuttonGoogle = styled.Text`
   color: #999;
   padding: 10px;
   font-weight: bold;
+  font-family: Helvetica-Normal;
 `;
 
 export const ButtonFacebook = styled.TouchableOpacity`
   margin: 10px;
   height: 45px;
   width: 250px;
-  border-radius: 50px;
+  border-radius: 8px;
   background: #3b5998;
 `;
 export const IconFacebook = styled(Icon).attrs({
@@ -121,4 +123,5 @@ export const TextFacebookButton = styled.Text`
   font-weight: bold;
   color: #fff;
   margin: 10px 1px;
+  font-family: Helvetica-Normal;
 `;
