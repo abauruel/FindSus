@@ -72,7 +72,7 @@ export const ConteudoEstabelecimentos = styled.View`
   margin-bottom: 15;
   justify-content: center;
   max-height: 200;
-  width: ${props => props.width - 40};
+  width: ${(props) => props.width - 40};
 
   display: flex;
 
@@ -98,7 +98,7 @@ export const BtnLinear = styled(LinearGradient).attrs({
 })`
   margin: 20px;
   height: 40px;
-  border-radius: 50px;
+  border-radius: 8px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -118,4 +118,31 @@ export const ViewLoading = styled.View`
   align-items: center;
   width: 100%;
   height: 100%;
+`;
+
+export const ContainerP = styled(LinearGradient).attrs({
+  colors: ['#1BABE3', '#4CC4D1'],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  margin: 20px;
+  height: 100px;
+  border-radius: 8px;
+`;
+
+export const ContainerPT = styled.View`
+  top: 90px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 30px;
+  elevation: 4;
+  height: 90px;
+`;
+export const LinearColor = styled(LinearGradient).attrs({
+  colors: ['#FFF', 'rgba(237,237,237,0)'],
+  start: { x: 1, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  border-radius: 8px;
+  margin: 20px;
 `;

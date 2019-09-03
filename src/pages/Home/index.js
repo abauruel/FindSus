@@ -10,7 +10,10 @@ import {
   Animated,
   Dimensions,
   Fragment,
+  ToastAndroid,
 } from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
+
 
 import MapView, { Marker, Callout } from 'react-native-maps';
 
@@ -18,6 +21,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import InfoPlace from '../../components/infoPlace';
+import Directions from '../../components/Directions';
 
 import api from '../../services/api';
 
@@ -38,9 +42,12 @@ import {
   ConteudoIcone,
   ConteudoEndereco,
   LinearColorList,
+  ContainerP,
+  ContainerPT,
+  LinearColor,
 } from './styles';
 
-import Directions from '../../components/Directions'
+
 
 import pinuser from '../../assets/pinUser.png';
 import pinPlace from '../../assets/pinPlace.png';
@@ -90,8 +97,8 @@ export default class Home extends Component {
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-
-    console.tron.log(permission)
+      console.tron.log(permission)
+    
     const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
     this.setState({
       tipoUnidades: [
@@ -117,7 +124,7 @@ export default class Home extends Component {
   handleclick = async () => {
     this.setState({ loading: true });
 
-    navigator.geolocation.watchPosition(
+    Geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         this.setState({
           region: {
@@ -135,7 +142,8 @@ export default class Home extends Component {
     );
 
     const { unidadeSelecionada, region, estabelecimentos } = this.state;
-
+    
+    
     api.createRequest({
       'est:requestLocalizarEstabelecimentoSaude': {
         'fil:FiltroLocalizacaoEstabelecimentoSaude': {
@@ -155,13 +163,20 @@ export default class Home extends Component {
       },
     });
     const est = await api.sendRequest();
+    
+    if(!est){
+      this.setState({ loading: false });
+      ToastAndroid.show('Server is out', ToastAndroid.SHORT)
 
+    }
+
+    
     const listaPlace = JSON.stringify(
-      est['soap11:Envelope']['soap11:Body'][0]['est:responseLocalizarEstabelecimentoSaude'][0][
+     est['soap:Envelope']['S:Body'][0]['est:responseLocalizarEstabelecimentoSaude'][0][
         'res:ResultadosLocalizacaoEstabelecimentoSaude'
       ][0]['res1:ResultadoLocalizacaoEstabelecimentoSaude'],
     );
-
+    console.tron.log(listaPlace)
     JSON.parse(listaPlace).map((place) => {
       this.setState({
         estabelecimentos: [
@@ -172,14 +187,14 @@ export default class Home extends Component {
             logradouro: place[PLACE][0]['end:Endereco'][0]['ns11:nomeLogradouro'][0]._,
             numero: place[PLACE][0]['end:Endereco'][0]['ns11:numero'][0]._,
             bairro:
-              place[PLACE][0]['end:Endereco'][0]['ns11:Bairro'][0]['ns13:descricaoBairro'][0]._,
-            cep: place[PLACE][0]['end:Endereco'][0]['ns11:CEP'][0]['ns14:numeroCEP'][0]._,
+              place[PLACE][0]['end:Endereco'][0]['ns11:Bairro'][0]['ns13:descricaoBairro'][0],
+            cep: place[PLACE][0]['end:Endereco'][0]['ns11:CEP'][0]['ns14:numeroCEP'][0],
             municipio:
-              place[PLACE][0]['end:Endereco'][0]['ns11:Municipio'][0]['ns15:nomeMunicipio'][0]._,
+              place[PLACE][0]['end:Endereco'][0]['ns11:Municipio'][0]['ns15:nomeMunicipio'][0],
             uf:
               place[PLACE][0]['end:Endereco'][0]['ns11:Municipio'][0]['ns15:UF'][0][
                 'ns16:siglaUF'
-              ][0]._,
+              ][0],
             longitude: place[PLACE][0]['dad:Localizacao'][0]['ns30:longitude'][0]._,
             latitude: place[PLACE][0]['dad:Localizacao'][0]['ns30:latitude'][0]._,
             ultimaAtualizacao: place[PLACE][0]['dad:dataAtualizacao'][0]._,
@@ -259,8 +274,13 @@ export default class Home extends Component {
     });
   };
 
-  getCurrentPosition = () => {
-    navigator.geolocation.getCurrentPosition(
+  getCurrentPosition =  async () => {
+    
+    
+
+    
+    
+    Geolocation.getCurrentPosition(
       (position) => {
         this.setState({
           region: {
@@ -276,14 +296,18 @@ export default class Home extends Component {
               longitude: this.state.region.longitude,
             },
           },
-          1000,
+          2000,
         );
-        console.tron.log(position);
+        setTimeout(() => {
+          console.tron.log(`latitude ${this.state.region.latitude}`);
+        },1000)
+        
+        
 
       },
       (error) => {
         console.tron.log(error);
-      },
+      },{enableHighAccuracy: false, timeout: 2000}
 
     );
   };
@@ -388,9 +412,67 @@ export default class Home extends Component {
             </TouchableOpacity>
           </BtnLinear>
         )}
-        <TouchableOpacity onPress={this.getCurrentPosition}>
-          <Text>I am here</Text>
+        
+          <LinearColor>
+            <View style={{flexDirection:"row", height: 100 , padding: 10}}>
+              <Icon name="hospital-alt" size={30} color="#000" style={{margin: 20}}/>
+              <View>
+              <Text style={{fontSize:20, fontWeight:"bold"}}>SES RJ UPA 24H</Text>
+              
+              <Text>Endereço</Text>
+              <Text>Bairro</Text>
+              <Text>Numero</Text>
+              <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", paddingTop:10}}>
+                
+                <Icon name="car" size={12} style={{marginRight:10}}/>
+                <Text>20km</Text>
+                
+              </View>
+              </View>
+            </View>
+          </LinearColor>
+
+        
+        
+          
+        
+        <View style={{flexDirection: "row", justifyContent:'flex-end', marginRight: 30}}>
+        
+        <TouchableOpacity onPress={this.getCurrentPosition} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
+          <Icon name="crosshairs" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
+          
         </TouchableOpacity>
+        
+        </View>
+        
+          
+          <ViewFooter>
+            <ContainerPT>
+              <View style={{margin: 20}}>
+                <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", padding: 5}}>
+                  <Icon name="map-marker-alt" size={12} color="#1BABE3" style={{marginRight: 10}}/>
+                  <Text>Current Position</Text>
+                </View>
+                <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", padding: 5}}>
+                  <Icon name="map-marker" size={12} color="#4CC4D1" style={{marginRight: 10}}/>
+                  <Text>Endereco destino</Text>
+                </View>
+              </View>
+            </ContainerPT>
+            <ContainerP>
+              <View style={{flexDirection:"row", justifyContent:"space-between", alignItems:"flex-end", margin: 10 }}>
+                  <View style={{margin: 40}}>
+                    <Text style={{fontWeight:"bold", color:"#FFF"}}>Distancia</Text>
+                    <Text style={{color:"#FFF"}}>20km</Text>
+                  </View>
+                  <View style={{margin: 40}}>
+                    <Text style={{fontWeight:"bold", color:"#FFF"}}>Tempo Aprox.</Text>
+                    <Text style={{color:"#FFF"}}>40min</Text>
+                  </View>
+              </View>
+            </ContainerP>
+          </ViewFooter>
+        
 
         {exibirListadeResultados && (
           <ViewFooter>
