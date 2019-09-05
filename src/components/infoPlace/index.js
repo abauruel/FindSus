@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import {
-  BoxInfoPlace, BoxInfoPlaceDetail, BoxIcon, IconPlace, Content,
+  BoxInfoPlace, BoxInfoPlaceDetail, BoxIcon, IconPlace, Content,LinearColor
 } from './style';
 
 const infoPlace = ({
@@ -26,6 +26,8 @@ const infoPlace = ({
       </BoxInfoPlaceDetail>
     </BoxInfoPlace>
   </Content>
+
+
 );
 
 export default infoPlace;

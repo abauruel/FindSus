@@ -11,9 +11,10 @@ import {
   Dimensions,
   Fragment,
   ToastAndroid,
+  NativeModules,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-
+import KeepAwake from 'react-native-keep-awake'
 
 import MapView, { Marker, Callout } from 'react-native-maps';
 
@@ -51,6 +52,7 @@ import {
 
 import pinuser from '../../assets/pinUser.png';
 import pinPlace from '../../assets/pinPlace.png';
+import ListPlaces from '../../components/ListPlaces';
 
 const PLACE = 'res1:EstabelecimentoSaude';
 const { width } = Dimensions.get('window');
@@ -90,6 +92,7 @@ export default class Home extends Component {
       descricao: null,
       icone: null,
     },
+    calloutSelect:0
   };
 
   async componentDidMount() {
@@ -98,7 +101,7 @@ export default class Home extends Component {
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
       console.tron.log(permission)
-    
+
     const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
     this.setState({
       tipoUnidades: [
@@ -142,8 +145,8 @@ export default class Home extends Component {
     );
 
     const { unidadeSelecionada, region, estabelecimentos } = this.state;
-    
-    
+
+
     api.createRequest({
       'est:requestLocalizarEstabelecimentoSaude': {
         'fil:FiltroLocalizacaoEstabelecimentoSaude': {
@@ -163,14 +166,14 @@ export default class Home extends Component {
       },
     });
     const est = await api.sendRequest();
-    
+
     if(!est){
       this.setState({ loading: false });
       ToastAndroid.show('Server is out', ToastAndroid.SHORT)
 
     }
 
-    
+
     const listaPlace = JSON.stringify(
      est['soap:Envelope']['S:Body'][0]['est:responseLocalizarEstabelecimentoSaude'][0][
         'res:ResultadosLocalizacaoEstabelecimentoSaude'
@@ -273,13 +276,17 @@ export default class Home extends Component {
       isMapReady: true,
     });
   };
+  _mapReady = () => {
+    this.state.estabelecimentos >0 &&(
+    this.state.estabelecimentos[0].mark.showCallout())
+  }
 
   getCurrentPosition =  async () => {
-    
-    
 
-    
-    
+
+
+
+
     Geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -301,8 +308,8 @@ export default class Home extends Component {
         setTimeout(() => {
           console.tron.log(`latitude ${this.state.region.latitude}`);
         },1000)
-        
-        
+
+
 
       },
       (error) => {
@@ -322,6 +329,7 @@ export default class Home extends Component {
     } = this.state;
 
     return (
+
       <Container>
         <MapView
           ref={map => (this.mapView = map)}
@@ -336,7 +344,7 @@ export default class Home extends Component {
           loadingEnabled
           style={styles.mapView}
           onLayout={this.onMapLayout}
-          onMapReady={this.viewPosition}
+          onMapReady={this._mapReady}
           customMapStyle={MapStyle}
         >
           {estabelecimentos.length > 0 ? (
@@ -370,7 +378,9 @@ export default class Home extends Component {
                       icon={this.state.unidadeSelecionada.icone}
                       duration={this.state.duration}
                       distance={this.state.distance}
+
                     />
+
                   </Callout>
                 </Marker>
               )),
@@ -381,10 +391,11 @@ export default class Home extends Component {
                 latitude: region.latitude,
                 longitude: region.longitude,
               }}
+              pinColor="blue"
               image={pinuser}
             />
           )}
-          {this.state.destination &&
+          {/* {this.state.destination &&
             <Directions
               origin={region}
               destination={this.state.destination}
@@ -392,7 +403,7 @@ export default class Home extends Component {
                 this.setState({ duration: Math.floor(result.duration), distance: Math.floor(result.distance)})
               }}
             />
-          }
+          } */}
         </MapView>
 
         {loading && (
@@ -401,7 +412,34 @@ export default class Home extends Component {
           </ViewLoading>
         )}
 
+
+      {/** Informações de estabelecimentos selecionados*/}
+      {estabelecimentos.length >0 && (
+
+        <LinearColor>
+        <View style={{flexDirection:"row",  paddingLeft: 20, paddingTop: 10}}>
+          <Icon name="hospital-alt" size={30} color="#000" style={{margin: 15}}/>
+          <View style={{ marginRight: 30 }}>
+          <Text style={{fontSize:18, fontWeight:"bold"}}>{estabelecimentos[this.state.calloutSelect].nome}</Text>
+
+          <Text>{estabelecimentos[this.state.calloutSelect].logradouro}</Text>
+          <Text>{estabelecimentos[this.state.calloutSelect].bairro}</Text>
+          <Text>{estabelecimentos[this.state.calloutSelect].numero}</Text>
+          <Text>{estabelecimentos[this.state.calloutSelect].municipio} - {estabelecimentos[this.state.calloutSelect].uf}</Text>
+          <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", paddingTop:5}}>
+            <Icon name="car" size={12} style={{marginRight:10}}/>
+            <Text>20km</Text>
+          </View>
+          </View>
+        </View>
+        
+      </LinearColor>
+
+      )}
+
+        {/** Pesquisa */}
         {unidadeSelecionada.cod && (
+          !exibirListadeResultados && (
           <BtnLinear>
             <TouchableOpacity onPress={this.handleList}>
               <Icon name="list-ul" color="#FFF" size={18} style={{ marginLeft: 20 }} />
@@ -410,70 +448,26 @@ export default class Home extends Component {
             <TouchableOpacity onPress={this.handleclick}>
               <Icon name="search" color="#FFF" size={18} style={{ marginRight: 30 }} />
             </TouchableOpacity>
-          </BtnLinear>
+          </BtnLinear>)
         )}
-        
-          <LinearColor>
-            <View style={{flexDirection:"row", height: 100 , padding: 10}}>
-              <Icon name="hospital-alt" size={30} color="#000" style={{margin: 20}}/>
-              <View>
-              <Text style={{fontSize:20, fontWeight:"bold"}}>SES RJ UPA 24H</Text>
-              
-              <Text>Endereço</Text>
-              <Text>Bairro</Text>
-              <Text>Numero</Text>
-              <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", paddingTop:10}}>
-                
-                <Icon name="car" size={12} style={{marginRight:10}}/>
-                <Text>20km</Text>
-                
-              </View>
-              </View>
-            </View>
-          </LinearColor>
 
-        
-        
-          
-        
-        <View style={{flexDirection: "row", justifyContent:'flex-end', marginRight: 30}}>
-        
-        <TouchableOpacity onPress={this.getCurrentPosition} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
-          <Icon name="crosshairs" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
-          
-        </TouchableOpacity>
-        
+
+        {/** botao centralizar localizacao */}
+        <View style={{ flexDirection:"row", justifyContent:"flex-end" , position: "absolute",bottom: 0, bottom: 0,  left: 0,  right: 0, marginBottom: 240, padding:20}}>
+          <TouchableOpacity onPress={this.getCurrentPosition} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
+            <Icon name="crosshairs" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
+          </TouchableOpacity>
         </View>
-        
-          
-          <ViewFooter>
-            <ContainerPT>
-              <View style={{margin: 20}}>
-                <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", padding: 5}}>
-                  <Icon name="map-marker-alt" size={12} color="#1BABE3" style={{marginRight: 10}}/>
-                  <Text>Current Position</Text>
-                </View>
-                <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", padding: 5}}>
-                  <Icon name="map-marker" size={12} color="#4CC4D1" style={{marginRight: 10}}/>
-                  <Text>Endereco destino</Text>
-                </View>
-              </View>
-            </ContainerPT>
-            <ContainerP>
-              <View style={{flexDirection:"row", justifyContent:"space-between", alignItems:"flex-end", margin: 10 }}>
-                  <View style={{margin: 40}}>
-                    <Text style={{fontWeight:"bold", color:"#FFF"}}>Distancia</Text>
-                    <Text style={{color:"#FFF"}}>20km</Text>
-                  </View>
-                  <View style={{margin: 40}}>
-                    <Text style={{fontWeight:"bold", color:"#FFF"}}>Tempo Aprox.</Text>
-                    <Text style={{color:"#FFF"}}>40min</Text>
-                  </View>
-              </View>
-            </ContainerP>
-          </ViewFooter>
-        
 
+        {/** Limpar buscas */}
+        {estabelecimentos.length > 0 && (
+          <View style={{ flexDirection:"row", justifyContent:"flex-end" , position: "absolute",bottom: 0, bottom: 0,  left: 0,  right: 0, marginBottom: 180, padding:20}}>
+            <TouchableOpacity onPress={()=>{this.setState({estabelecimentos:[], exibirListadeResultados: false, calloutSelect:0})}} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
+              <Icon name="eraser" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
+            </TouchableOpacity>
+          </View>)}
+
+        {/** Lista com resultados de pesquisa */}
         {exibirListadeResultados && (
           <ViewFooter>
             <ScrollView
@@ -482,10 +476,8 @@ export default class Home extends Component {
               pagingEnabled
               onMomentumScrollEnd={(e) => {
                 const scrolled = e.nativeEvent.contentOffset.x;
-
                 const place = scrolled > 0 ? scrolled / Dimensions.get('window').width : 0;
                 const { latitude, longitude, mark } = estabelecimentos[Math.round(place)];
-
                 this.mapView.animateCamera(
                   {
                     center: {
@@ -498,31 +490,16 @@ export default class Home extends Component {
                 setTimeout(() => {
                   mark.showCallout();
                 }, 1000);
-                this.setState({destination: {latitude:Number(latitude), longitude:Number(longitude)}})
-              }}
+                this.setState({
+                  destination: {latitude:Number(latitude), longitude:Number(longitude)},
+                  calloutSelect: Math.round(place)
+                })                
+              }
+            }
             >
-              {estabelecimentos.map(place => (
-
-                  <ConteudoEstabelecimentos key={place.nome} width={width}>
-                    <Text style={{ fontWeight: 'bold', paddingLeft: 10,fontSize: 12, marginTop:10 }}>{place.nome}</Text>
-                    <Text style={{paddingLeft:10, fontSize: 12}}>
-                          {`${place.logradouro} ${place.numero} ${place.bairro}`}
-                          </Text>
-                    <ConteudoEstabelecimentosDetalhes>
-                      <ConteudoIcone>
-                          <Icon name={unidadeSelecionada.icone} size={20} color='#FFF'/>
-                        </ConteudoIcone>
-                      <ConteudoEndereco>
-                          <Text style={{paddingLeft:10, fontSize: 12}}>{`Cep: ${place.cep}`}</Text>
-                          <Text style={{paddingLeft:10, fontSize: 12}}>{`${place.municipio} - ${place.uf}`}</Text>
-
-                          <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 12, paddingLeft:10 }}>
-                            {`Ultima Atualização: ${place.ultimaAtualizacao}`}
-                          </Text>
-                          </ConteudoEndereco>
-                    </ConteudoEstabelecimentosDetalhes>
-                  </ConteudoEstabelecimentos>
-
+              {
+                estabelecimentos.map(place => (
+                  <ListPlaces place={place} key={place.nome} width={width}/>
               ))}
             </ScrollView>
           </ViewFooter>
@@ -560,6 +537,7 @@ export default class Home extends Component {
             </LinearColorList>
           </List>
         )}
+        <KeepAwake/>
       </Container>
     );
   }
