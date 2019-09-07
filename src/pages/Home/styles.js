@@ -139,8 +139,9 @@ export const ContainerPT = styled.View`
   height: 90px;
 `;
 export const LinearColor = styled(LinearGradient).attrs({
-  colors: ['#FFF', '#FFF', 'rgba(255,255,255,0)', 'rgba(255,255,255,0.0)'],
-  locations: [0.35, 0.65, 1, 1],
+  colors: ['#FFF', 'rgba(255,255,255,0.0)'],
+  locations: [0.75, 1],
+
   start: { x: 1, y: 0 },
   end: { x: 1, y: 1 },
 })`

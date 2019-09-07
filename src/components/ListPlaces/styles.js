@@ -1,25 +1,11 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
-
 export const ViewFooter = styled.View`
-  /*
-  margin-bottom: 0px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 4px;*/
-
-  width: ${(props)=> props.width - 40 };
-
+  width: ${(props) => props.width - 40};
   display: flex;
-
   margin-left: 20px;
   margin-right: 20px;
-
-
-
-
   justify-content: center;
   max-height: 200;
 `;
@@ -51,7 +37,6 @@ export const ConteudoEstabelecimentos = styled.View`
   margin-bottom: 15;
   justify-content: center;
   max-height: 200;
-
 
   display: flex;
 

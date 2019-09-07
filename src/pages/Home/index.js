@@ -12,9 +12,10 @@ import {
   Fragment,
   ToastAndroid,
   NativeModules,
+  YellowBox
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import KeepAwake from 'react-native-keep-awake'
+import KeepAwake from 'react-native-keep-awake';
 
 import MapView, { Marker, Callout } from 'react-native-maps';
 
@@ -23,6 +24,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import InfoPlace from '../../components/infoPlace';
 import Directions from '../../components/Directions';
+import { getPixelSize} from '../../utils';
 
 import api from '../../services/api';
 
@@ -57,7 +59,7 @@ import ListPlaces from '../../components/ListPlaces';
 const PLACE = 'res1:EstabelecimentoSaude';
 const { width } = Dimensions.get('window');
 
-
+YellowBox.ignoreWarnings(['Warning: componentWillReceiveProps']);
 
 export default class Home extends Component {
   state = {
@@ -226,8 +228,9 @@ export default class Home extends Component {
     });
   };
 
-  handleSelectedItem = (item) => {
-    this.setState({
+  handleSelectedItem =  (item) => {
+   
+     this.setState({
       unidadeSelecionada: {
         cod: item.cod,
         descricao: item.descricao,
@@ -241,7 +244,7 @@ export default class Home extends Component {
       delete element.checked;
     });
 
-    this.setState({
+     this.setState({
       visibleList: false,
 
       tipoUnidades: [
@@ -254,8 +257,9 @@ export default class Home extends Component {
         },
       ],
     });
+   
 
-    this.handleViewListResults();
+    //this.handleViewListResults();
   };
 
   handleViewListResults = () => {
@@ -282,11 +286,6 @@ export default class Home extends Component {
   }
 
   getCurrentPosition =  async () => {
-
-
-
-
-
     Geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -309,8 +308,6 @@ export default class Home extends Component {
           console.tron.log(`latitude ${this.state.region.latitude}`);
         },1000)
 
-
-
       },
       (error) => {
         console.tron.log(error);
@@ -319,6 +316,7 @@ export default class Home extends Component {
     );
   };
 
+  
   render() {
     const {
       region,
@@ -372,14 +370,14 @@ export default class Home extends Component {
                   image={pinPlace}
                 >
                   <Callout tooltip>
-                    <InfoPlace
+                    {/* <InfoPlace
                       title={place.nome}
                       description={place.logradouro}
                       icon={this.state.unidadeSelecionada.icone}
                       duration={this.state.duration}
                       distance={this.state.distance}
 
-                    />
+                    /> */}
 
                   </Callout>
                 </Marker>
@@ -395,15 +393,23 @@ export default class Home extends Component {
               image={pinuser}
             />
           )}
-          {/* {this.state.destination &&
+          {this.state.destination &&
             <Directions
               origin={region}
               destination={this.state.destination}
               onReady={(result)=>{
+                this.mapView.fitToCoordinates(result.coordinates,{
+                  edgePadding:{
+                    right: getPixelSize(50),
+                    left: getPixelSize(50),
+                    top: getPixelSize(200),
+                    bottom: getPixelSize(200),
+                  }
+                });
                 this.setState({ duration: Math.floor(result.duration), distance: Math.floor(result.distance)})
               }}
             />
-          } */}
+          }
         </MapView>
 
         {loading && (
@@ -462,7 +468,7 @@ export default class Home extends Component {
         {/** Limpar buscas */}
         {estabelecimentos.length > 0 && (
           <View style={{ flexDirection:"row", justifyContent:"flex-end" , position: "absolute",bottom: 0, bottom: 0,  left: 0,  right: 0, marginBottom: 180, padding:20}}>
-            <TouchableOpacity onPress={()=>{this.setState({estabelecimentos:[], exibirListadeResultados: false, calloutSelect:0})}} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
+            <TouchableOpacity onPress={()=>{this.setState({estabelecimentos:[], exibirListadeResultados: false, calloutSelect:0, destination: null})}} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
               <Icon name="eraser" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
             </TouchableOpacity>
           </View>)}
@@ -537,7 +543,7 @@ export default class Home extends Component {
             </LinearColorList>
           </List>
         )}
-        <KeepAwake/>
+        <KeepAwake />
       </Container>
     );
   }
