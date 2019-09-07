@@ -102,7 +102,7 @@ export default class Home extends Component {
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-      console.tron.log(permission)
+      
 
     const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
     this.setState({
