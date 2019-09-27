@@ -1,4 +1,4 @@
-import SoapRequest from 'react-native-soap-request';
+import SoapRequest from '../utils/soap';
 
 const soapRequest = new SoapRequest({
   security: {

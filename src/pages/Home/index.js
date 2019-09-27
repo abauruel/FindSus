@@ -7,24 +7,21 @@ import {
   PermissionsAndroid,
   TouchableOpacity,
   ScrollView,
-  Animated,
   Dimensions,
-  Fragment,
   ToastAndroid,
-  NativeModules,
-  YellowBox
+  YellowBox,
+  Linking
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import KeepAwake from 'react-native-keep-awake';
 
-import MapView, { Marker, Callout } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import InfoPlace from '../../components/infoPlace';
 import Directions from '../../components/Directions';
-import { getPixelSize} from '../../utils';
+import { getPixelSize } from '../../utils/Size';
 
 import api from '../../services/api';
 
@@ -37,19 +34,12 @@ import {
   ContainerButton,
   IconDescription,
   ViewFooter,
-  ConteudoEstabelecimentos,
   TextUnidadeSelecionada,
   ViewLoading,
   BtnLinear,
-  ConteudoEstabelecimentosDetalhes,
-  ConteudoIcone,
-  ConteudoEndereco,
   LinearColorList,
-  ContainerP,
-  ContainerPT,
   LinearColor,
 } from './styles';
-
 
 
 import pinuser from '../../assets/pinUser.png';
@@ -64,7 +54,7 @@ YellowBox.ignoreWarnings(['Warning: componentWillReceiveProps']);
 export default class Home extends Component {
   state = {
     distance: null,
-    duration:null,
+    duration: null,
     destination: null,
     loading: false,
     isMapReady: false,
@@ -94,7 +84,7 @@ export default class Home extends Component {
       descricao: null,
       icone: null,
     },
-    calloutSelect:0
+    calloutSelect: 0,
   };
 
   async componentDidMount() {
@@ -102,9 +92,9 @@ export default class Home extends Component {
     const permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-      
 
-    const tiposUnidades = tipoUnidades.filter(item => item.cod !== '73');
+
+    const tiposUnidades = tipoUnidades.filter((item) => item.cod !== '73');
     this.setState({
       tipoUnidades: [
         ...tiposUnidades,
@@ -146,7 +136,7 @@ export default class Home extends Component {
       },
     );
 
-    const { unidadeSelecionada, region, estabelecimentos } = this.state;
+    const { unidadeSelecionada, region } = this.state;
 
 
     api.createRequest({
@@ -162,26 +152,26 @@ export default class Home extends Component {
           },
           'pag:Paginacao': {
             'pag:posicaoRegistroInicio': '01',
-            'pag:quantidadeRegistrosPorPagina': '10',
+            'pag:quantidadeRegistrosPorPagina': '5',
           },
         },
       },
     });
     const est = await api.sendRequest();
 
-    if(!est){
+    if (!est) {
       this.setState({ loading: false });
-      ToastAndroid.show('Server is out', ToastAndroid.SHORT)
-
+      ToastAndroid.show('Server is out', ToastAndroid.SHORT);
     }
 
 
     const listaPlace = JSON.stringify(
-     est['soap:Envelope']['S:Body'][0]['est:responseLocalizarEstabelecimentoSaude'][0][
+      est['soap:Envelope']['S:Body'][0]['est:responseLocalizarEstabelecimentoSaude'][0][
         'res:ResultadosLocalizacaoEstabelecimentoSaude'
       ][0]['res1:ResultadoLocalizacaoEstabelecimentoSaude'],
     );
-    console.tron.log(listaPlace)
+
+
     JSON.parse(listaPlace).map((place) => {
       this.setState({
         estabelecimentos: [
@@ -209,8 +199,15 @@ export default class Home extends Component {
     });
 
     this.setState({ loading: false });
-    this.setState({exibirListadeResultados: true})
-  };
+    this.setState({ exibirListadeResultados: true });
+    this.setState({
+      destination: {
+        latitude: Number(this.state.estabelecimentos[0].latitude),
+        longitude: Number(this.state.estabelecimentos[0].longitude),
+      },
+    });
+  }
+
 
   handleList = () => {
     switch (this.state.visibleList) {
@@ -228,9 +225,8 @@ export default class Home extends Component {
     });
   };
 
-  handleSelectedItem =  (item) => {
-   
-     this.setState({
+  handleSelectedItem = (item) => {
+    this.setState({
       unidadeSelecionada: {
         cod: item.cod,
         descricao: item.descricao,
@@ -239,12 +235,12 @@ export default class Home extends Component {
       estabelecimentos: [],
     });
 
-    const _TiposEstabelecimentos = this.state.tipoUnidades.filter(id => id.cod !== item.cod);
+    const _TiposEstabelecimentos = this.state.tipoUnidades.filter((id) => id.cod !== item.cod);
     _TiposEstabelecimentos.forEach((element) => {
       delete element.checked;
     });
 
-     this.setState({
+    this.setState({
       visibleList: false,
 
       tipoUnidades: [
@@ -257,9 +253,9 @@ export default class Home extends Component {
         },
       ],
     });
-   
 
-    //this.handleViewListResults();
+
+    // this.handleViewListResults();
   };
 
   handleViewListResults = () => {
@@ -280,12 +276,9 @@ export default class Home extends Component {
       isMapReady: true,
     });
   };
-  _mapReady = () => {
-    this.state.estabelecimentos >0 &&(
-    this.state.estabelecimentos[0].mark.showCallout())
-  }
 
-  getCurrentPosition =  async () => {
+
+  getCurrentPosition = async () => {
     Geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -306,17 +299,16 @@ export default class Home extends Component {
         );
         setTimeout(() => {
           console.tron.log(`latitude ${this.state.region.latitude}`);
-        },1000)
-
+        }, 1000);
       },
       (error) => {
         console.tron.log(error);
-      },{enableHighAccuracy: false, timeout: 2000}
+      }, { enableHighAccuracy: false, timeout: 2000 },
 
     );
   };
 
-  
+
   render() {
     const {
       region,
@@ -330,7 +322,7 @@ export default class Home extends Component {
 
       <Container>
         <MapView
-          ref={map => (this.mapView = map)}
+          ref={(map) => (this.mapView = map)}
           initialRegion={{
             latitude: region.latitude,
             longitude: region.longitude,
@@ -342,7 +334,7 @@ export default class Home extends Component {
           loadingEnabled
           style={styles.mapView}
           onLayout={this.onMapLayout}
-          onMapReady={this._mapReady}
+          mapType="none"
           customMapStyle={MapStyle}
         >
           {estabelecimentos.length > 0 ? (
@@ -355,9 +347,9 @@ export default class Home extends Component {
                 }}
                 image={pinuser}
               />,
-              estabelecimentos.map(place => (
+              estabelecimentos.map((place) => (
                 <Marker
-                  ref={mark => (place.mark = mark)}
+                  ref={(mark) => (place.mark = mark)}
                   anchor={{ x: 0, y: 0 }}
                   key={place.nome}
                   coordinate={
@@ -368,19 +360,7 @@ export default class Home extends Component {
                   }
                   pinColor="blue"
                   image={pinPlace}
-                >
-                  <Callout tooltip>
-                    {/* <InfoPlace
-                      title={place.nome}
-                      description={place.logradouro}
-                      icon={this.state.unidadeSelecionada.icone}
-                      duration={this.state.duration}
-                      distance={this.state.distance}
-
-                    /> */}
-
-                  </Callout>
-                </Marker>
+                />
               )),
             ]
           ) : (
@@ -389,27 +369,29 @@ export default class Home extends Component {
                 latitude: region.latitude,
                 longitude: region.longitude,
               }}
-              pinColor="blue"
+
               image={pinuser}
             />
           )}
-          {this.state.destination &&
+          {this.state.destination
+            && (
             <Directions
               origin={region}
               destination={this.state.destination}
-              onReady={(result)=>{
-                this.mapView.fitToCoordinates(result.coordinates,{
-                  edgePadding:{
+              onReady={(result) => {
+                console.tron.log(result);
+                this.mapView.fitToCoordinates(result.coordinates, {
+                  edgePadding: {
                     right: getPixelSize(50),
                     left: getPixelSize(50),
                     top: getPixelSize(200),
                     bottom: getPixelSize(200),
-                  }
+                  },
                 });
-                this.setState({ duration: Math.floor(result.duration), distance: Math.floor(result.distance)})
+                this.setState({ duration: parseFloat(result.duration.toFixed(2)), distance: parseFloat(result.distance.toFixed(2)) });
               }}
             />
-          }
+            )}
         </MapView>
 
         {loading && (
@@ -419,31 +401,52 @@ export default class Home extends Component {
         )}
 
 
-      {/** Informações de estabelecimentos selecionados*/}
-      {estabelecimentos.length >0 && (
-
+        {/** Informações de estabelecimentos selecionados */}
+        {estabelecimentos.length > 0 && (
+        // transformar em componente separado
         <LinearColor>
-        <View style={{flexDirection:"row",  paddingLeft: 20, paddingTop: 10}}>
-          <Icon name="hospital-alt" size={30} color="#000" style={{margin: 15}}/>
-          <View style={{ marginRight: 30 }}>
-          <Text style={{fontSize:18, fontWeight:"bold"}}>{estabelecimentos[this.state.calloutSelect].nome}</Text>
+          <View style={{ flexDirection: 'row', paddingLeft: 20, paddingTop: 10 }}>
+            <Icon name="hospital-alt" size={30} color="#000" style={{ margin: 15 }} />
+            <View style={{ marginRight: 30 }}>
+              <Text style={{ fontSize: 18, fontWeight: 'bold', maxWidth: 290 }}>{estabelecimentos[this.state.calloutSelect].nome}</Text>
+              <View style={{flexDirection:'row'}}>
+              <View>
+                <Text>{estabelecimentos[this.state.calloutSelect].logradouro}</Text>
+                <Text>{estabelecimentos[this.state.calloutSelect].bairro}</Text>
+                <Text>{estabelecimentos[this.state.calloutSelect].numero}</Text>
+                <Text>
+                  {estabelecimentos[this.state.calloutSelect].municipio}
+                  {estabelecimentos[this.state.calloutSelect].uf}
+                </Text>
+                <Text>{estabelecimentos[this.state.calloutSelect].cep}</Text>
+                <View style={{
+                  flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingTop: 5,
+                }}
+                >
+                  {this.state.distance && (<Icon name="car" size={12} style={{ marginRight: 10 }} />)}
+                  <Text style={{marginRight: 20}}>{this.state.distance ? `${this.state.distance} km` : '-'}</Text>
+                  
+                </View>
 
-          <Text>{estabelecimentos[this.state.calloutSelect].logradouro}</Text>
-          <Text>{estabelecimentos[this.state.calloutSelect].bairro}</Text>
-          <Text>{estabelecimentos[this.state.calloutSelect].numero}</Text>
-          <Text>{estabelecimentos[this.state.calloutSelect].municipio} - {estabelecimentos[this.state.calloutSelect].uf}</Text>
-          <View style={{flexDirection:"row", justifyContent:"flex-start", alignItems:"center", paddingTop:5}}>
-            <Icon name="car" size={12} style={{marginRight:10}}/>
-            <Text>20km</Text>
+              </View>
+              <View style={{justifyContent:'center'}}>
+              <TouchableOpacity style={{backgroundColor: '#1BABE3', elevation: 3, borderRadius: 100, padding: 20}}
+                  onPress={()=> Linking.openURL(`geo:${this.state.region}?q=${this.state.estabelecimentos[this.state.calloutSelect].latitude},${this.state.estabelecimentos[this.state.calloutSelect].longitude}`)}>
+                  <Text style={{color: '#FFF'}}> IR </Text>
+              </TouchableOpacity>
+              </View>
+              </View>
+              
+              
+              
+            </View>
           </View>
-          </View>
-        </View>
-        
-      </LinearColor>
 
-      )}
+        </LinearColor>
 
-        {/** Pesquisa */}
+        )}
+
+        {/** Botão Pesquisa */}
         {unidadeSelecionada.cod && (
           !exibirListadeResultados && (
           <BtnLinear>
@@ -454,24 +457,46 @@ export default class Home extends Component {
             <TouchableOpacity onPress={this.handleclick}>
               <Icon name="search" color="#FFF" size={18} style={{ marginRight: 30 }} />
             </TouchableOpacity>
-          </BtnLinear>)
+          </BtnLinear>
+          )
         )}
 
 
         {/** botao centralizar localizacao */}
-        <View style={{ flexDirection:"row", justifyContent:"flex-end" , position: "absolute",bottom: 0, bottom: 0,  left: 0,  right: 0, marginBottom: 240, padding:20}}>
-          <TouchableOpacity onPress={this.getCurrentPosition} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
-            <Icon name="crosshairs" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
+        <View style={{
+          flexDirection: 'row', justifyContent: 'flex-end', position: 'absolute', bottom: 0, bottom: 0, left: 0, right: 0, marginBottom: 240, padding: 20,
+        }}
+        >
+          <TouchableOpacity
+            onPress={this.getCurrentPosition}
+            style={{
+              backgroundColor: '#ddd', padding: 10, borderRadius: 50, width: 45, height: 45,
+            }}
+          >
+            <Icon name="crosshairs" size={24} color="#000" style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} />
           </TouchableOpacity>
         </View>
 
-        {/** Limpar buscas */}
+        {/** Botão Limpa array estabelecimentos */}
         {estabelecimentos.length > 0 && (
-          <View style={{ flexDirection:"row", justifyContent:"flex-end" , position: "absolute",bottom: 0, bottom: 0,  left: 0,  right: 0, marginBottom: 180, padding:20}}>
-            <TouchableOpacity onPress={()=>{this.setState({estabelecimentos:[], exibirListadeResultados: false, calloutSelect:0, destination: null})}} style={{backgroundColor:"#ddd", padding: 10, borderRadius: 50, width: 45, height:45}}>
-              <Icon name="eraser" size={24} color="#000" style={{flexDirection: "column",justifyContent: "center", alignItems: "center"}}/>
+          <View style={{
+            flexDirection: 'row', justifyContent: 'flex-end', position: 'absolute', bottom: 0, bottom: 0, left: 0, right: 0, marginBottom: 180, padding: 20,
+          }}
+          >
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  estabelecimentos: [], exibirListadeResultados: false, calloutSelect: 0, destination: null,
+                });
+              }}
+              style={{
+                backgroundColor: '#ddd', padding: 10, borderRadius: 50, width: 45, height: 45,
+              }}
+            >
+              <Icon name="eraser" size={24} color="#000" style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} />
             </TouchableOpacity>
-          </View>)}
+          </View>
+        )}
 
         {/** Lista com resultados de pesquisa */}
         {exibirListadeResultados && (
@@ -497,16 +522,16 @@ export default class Home extends Component {
                   mark.showCallout();
                 }, 1000);
                 this.setState({
-                  destination: {latitude:Number(latitude), longitude:Number(longitude)},
-                  calloutSelect: Math.round(place)
-                })                
-              }
-            }
+                  destination: { latitude: Number(latitude), longitude: Number(longitude) },
+                  calloutSelect: Math.round(place),
+                });
+              }}
             >
               {
-                estabelecimentos.map(place => (
-                  <ListPlaces place={place} key={place.nome} width={width}/>
-              ))}
+                estabelecimentos.map((place) => (
+                  <ListPlaces place={place} key={place.nome} width={width} distance={this.state.distance} duration={this.state.duration} />
+                ))
+}
             </ScrollView>
           </ViewFooter>
         )}
@@ -514,32 +539,32 @@ export default class Home extends Component {
         {this.state.visibleList && (
           <List>
             <LinearColorList>
-            <View style={{ marginTop: 5 }}>
-              <FlatList
-                data={this.state.tipoUnidades.sort((a, b) => a.cod < b.cod)}
-                keyExtractor={item => String(item.cod)}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    onPress={() => this.handleSelectedItem(item)}
-                    style={{marginHorizontal: 20, marginTop: 10}}
-                  >
-                    <ContainerButton>
-                      <IconDescription>
-                        <Icon name={item.icone} size={18} color="#FFF" style={{ padding: 5 }} />
-                        <ItemLista>{item.descricao}</ItemLista>
-                      </IconDescription>
-                      <View>
-                        {item.checked ? (
-                          <Icon name="check-circle" size={15} color="#FFF" />
-                        ) : (
-                          <Icon name="circle" size={15} color="#FFF" />
-                        )}
-                      </View>
-                    </ContainerButton>
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
+              <View style={{ marginTop: 5 }}>
+                <FlatList
+                  data={this.state.tipoUnidades.sort((a, b) => a.cod < b.cod)}
+                  keyExtractor={(item) => String(item.cod)}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      onPress={() => this.handleSelectedItem(item)}
+                      style={{ marginHorizontal: 20, marginTop: 10 }}
+                    >
+                      <ContainerButton>
+                        <IconDescription>
+                          <Icon name={item.icone} size={18} color="#FFF" style={{ padding: 5 }} />
+                          <ItemLista>{item.descricao}</ItemLista>
+                        </IconDescription>
+                        <View>
+                          {item.checked ? (
+                            <Icon name="check-circle" size={15} color="#FFF" />
+                          ) : (
+                            <Icon name="circle" size={15} color="#FFF" />
+                          )}
+                        </View>
+                      </ContainerButton>
+                    </TouchableOpacity>
+                  )}
+                />
+              </View>
             </LinearColorList>
           </List>
         )}
