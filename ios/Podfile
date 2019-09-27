@@ -29,6 +29,7 @@ target 'findsus' do
 
 
 
+
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'findsusTests' do
