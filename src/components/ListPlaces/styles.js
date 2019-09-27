@@ -8,6 +8,7 @@ export const ViewFooter = styled.View`
   margin-right: 20px;
   justify-content: center;
   max-height: 200;
+
 `;
 
 export const ContainerP = styled(LinearGradient).attrs({

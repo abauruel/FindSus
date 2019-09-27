@@ -146,5 +146,5 @@ export const LinearColor = styled(LinearGradient).attrs({
   end: { x: 1, y: 1 },
 })`
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 0px;
 `;
