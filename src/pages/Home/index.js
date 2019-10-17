@@ -15,7 +15,7 @@ import {
 import Geolocation from '@react-native-community/geolocation';
 import KeepAwake from 'react-native-keep-awake';
 
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker} from 'react-native-maps';
 
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -45,6 +45,7 @@ import {
 import pinuser from '../../assets/pinUser.png';
 import pinPlace from '../../assets/pinPlace.png';
 import ListPlaces from '../../components/ListPlaces';
+
 
 const PLACE = 'res1:EstabelecimentoSaude';
 const { width } = Dimensions.get('window');
@@ -114,6 +115,7 @@ export default class Home extends Component {
     if (permission === 'granted') {
       this.getCurrentPosition();
     }
+
   }
 
   handleclick = async () => {
@@ -135,6 +137,7 @@ export default class Home extends Component {
         maximumAge: 1000,
       },
     );
+
 
     const { unidadeSelecionada, region } = this.state;
 
@@ -279,34 +282,37 @@ export default class Home extends Component {
 
 
   getCurrentPosition = async () => {
-    Geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({
-          region: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            error: null,
-          },
-        });
-        this.mapView.animateCamera(
-          {
-            center: {
-              latitude: this.state.region.latitude,
-              longitude: this.state.region.longitude,
-            },
-          },
-          2000,
-        );
-        setTimeout(() => {
-          console.tron.log(`latitude ${this.state.region.latitude}`);
-        }, 1000);
-      },
-      (error) => {
-        console.tron.log(error);
-      }, { enableHighAccuracy: false, timeout: 2000 },
-
+    const permission = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-  };
+
+    if (permission === PermissionsAndroid.RESULTS.GRANTED) {
+      await Geolocation.getCurrentPosition(
+        ({ coords: { latitude, longitude } }) => {
+          this.setState({
+            region: {
+              latitude,
+              longitude,
+              error: null,
+            },
+          });
+          this.mapView.animateCamera(
+            {
+              center: {
+                latitude,
+                longitude,
+              },
+            },
+            1000,
+          );
+        },
+        (error) => {
+          console.tron.log(error);
+        },
+         { enableHighAccuracy: true, timeout: 2000, maximumAge: 0 },
+      );
+    }
+  }
 
 
   render() {
@@ -322,6 +328,7 @@ export default class Home extends Component {
 
       <Container>
         <MapView
+
           ref={(map) => (this.mapView = map)}
           initialRegion={{
             latitude: region.latitude,
@@ -329,12 +336,10 @@ export default class Home extends Component {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          showsUserLocation
-          showsMyLocationButton
+
           loadingEnabled
-          style={styles.mapView}
+          style={ styles.mapView}
           onLayout={this.onMapLayout}
-          mapType="none"
           customMapStyle={MapStyle}
         >
           {estabelecimentos.length > 0 ? (
@@ -385,7 +390,7 @@ export default class Home extends Component {
                     right: getPixelSize(50),
                     left: getPixelSize(50),
                     top: getPixelSize(200),
-                    bottom: getPixelSize(200),
+                    bottom: getPixelSize(250),
                   },
                 });
                 this.setState({ duration: parseFloat(result.duration.toFixed(2)), distance: parseFloat(result.distance.toFixed(2)) });
@@ -425,7 +430,7 @@ export default class Home extends Component {
                 >
                   {this.state.distance && (<Icon name="car" size={12} style={{ marginRight: 10 }} />)}
                   <Text style={{marginRight: 20}}>{this.state.distance ? `${this.state.distance} km` : '-'}</Text>
-                  
+
                 </View>
 
               </View>
@@ -436,9 +441,9 @@ export default class Home extends Component {
               </TouchableOpacity>
               </View>
               </View>
-              
-              
-              
+
+
+
             </View>
           </View>
 
@@ -463,7 +468,7 @@ export default class Home extends Component {
 
 
         {/** botao centralizar localizacao */}
-        <View style={{
+        {!loading && (<View style={{
           flexDirection: 'row', justifyContent: 'flex-end', position: 'absolute', bottom: 0, bottom: 0, left: 0, right: 0, marginBottom: 240, padding: 20,
         }}
         >
@@ -475,7 +480,7 @@ export default class Home extends Component {
           >
             <Icon name="crosshairs" size={24} color="#000" style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} />
           </TouchableOpacity>
-        </View>
+        </View>)}
 
         {/** Botão Limpa array estabelecimentos */}
         {estabelecimentos.length > 0 && (
@@ -503,7 +508,7 @@ export default class Home extends Component {
           <ViewFooter>
             <ScrollView
               horizontal
-              showHorizontalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
               pagingEnabled
               onMomentumScrollEnd={(e) => {
                 const scrolled = e.nativeEvent.contentOffset.x;
@@ -576,9 +581,9 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   mapView: {
-    bottom: 0,
+    bottom: -30,
     left: 0,
-    paddingLeft: 5,
+    paddingLeft: 0,
     position: 'absolute',
     right: 0,
     top: 0,

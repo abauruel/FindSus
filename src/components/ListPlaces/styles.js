@@ -16,7 +16,7 @@ export const ContainerP = styled(LinearGradient).attrs({
   start: { x: 0, y: 0 },
   end: { x: 1, y: 1 },
 })`
-  margin-bottom: 55px;
+  margin-bottom: 50px;
   height: 100px;
   border-radius: 8px;
 `;
