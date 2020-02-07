@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, Linking} from 'react-native';
+import {View, Text, Linking, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {Container, LinearColor, TouchableOpacity} from './styles';
+import {LinearColor} from './styles';
 
 export default function CardPlaceSelected({
   estabelecimentos,
