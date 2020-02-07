@@ -15,13 +15,23 @@ const soapRequest = new SoapRequest({
       url:
         'http://servicos.saude.gov.br/wsdl/mensageria/v1r0/filtrolocalizacaoestabelecimentosaude',
     },
-    { xmlns: 'xmlns:loc', url: 'http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao' },
-    { xmlns: 'xmlns:tip', url: 'http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade' },
-    { xmlns: 'xmlns:pag', url: 'http://servicos.saude.gov.br/wsdl/mensageria/v1r0/paginacao' },
+    {
+      xmlns: 'xmlns:loc',
+      url: 'http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao',
+    },
+    {
+      xmlns: 'xmlns:tip',
+      url: 'http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade',
+    },
+    {
+      xmlns: 'xmlns:pag',
+      url: 'http://servicos.saude.gov.br/wsdl/mensageria/v1r0/paginacao',
+    },
   ],
 
   commonTypes: 'http://soap.acme.com/2.0/soap-common-types',
-  requestURL: 'https://servicos.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0',
+  requestURL:
+    'https://servicoshm.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0',
 });
 
 export default soapRequest;

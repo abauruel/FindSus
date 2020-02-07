@@ -1,16 +1,17 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 
-//import Screen from './pages/Screen';
-// import Login from './pages/Login';
+// import Screen from './pages/Screen';
+import Map from './components/Map';
 import Home from './pages/Home';
 
 import './styles/global';
 
 const Routes = createAppContainer(
   createSwitchNavigator({
-    //Screen,
+    // Screen,
     // Login,
-    Home,
+    // Home,
+    Map,
   }),
 );
 
