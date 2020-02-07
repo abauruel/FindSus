@@ -9,19 +9,6 @@ import PlaceCardSelected from '../CardPlaceSelected';
 // import { Container } from './styles';
 import pinuser from '../../assets/pinUser.png';
 import pinPlace from '../../assets/pinPlace.png';
-import {
-  Container,
-  List,
-  ItemLista,
-  ContainerButton,
-  IconDescription,
-  ViewFooter,
-  TextUnidadeSelecionada,
-  ViewLoading,
-  BtnLinear,
-  LinearColorList,
-  LinearColor,
-} from './styles';
 
 import {getPixelSize} from '../../utils/Size';
 
