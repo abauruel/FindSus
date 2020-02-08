@@ -16,12 +16,13 @@
     "react-native-gesture-handler": "^1.4.1",
     "react-native-keep-awake": "^4.0.0",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-maps": "^0.25.0",
+    "react-native-maps": "0.26.1",
     "react-native-maps-directions": "^1.7.0",
     "react-native-soap-request": "^0.0.2",
     "react-native-vector-icons": "^6.6.0",
     "react-native-xml2js": "^1.0.3",
     "react-navigation": "^3.12.1",
+    "reactotron-react-native": "^4.0.3",
     "styled-components": "^4.3.2",
     "xmldom": "^0.1.27"
   },
@@ -30,7 +31,7 @@
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
-    "eslint": "^6.3.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -38,8 +39,7 @@
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
-    "react-test-renderer": "16.8.6",
-    "reactotron-react-native": "^3.6.5"
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
