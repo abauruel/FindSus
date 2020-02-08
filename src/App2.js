@@ -1,7 +1,6 @@
 import './config/reactotronConfig';
-import React, {useEffect, useState} from 'react';
-import Geolocation from '@react-native-community/geolocation';
-import {Text} from 'react-native';
+import React from 'react';
+
 import {Container} from './styles/global';
 import MapArea from './components/Map';
 
