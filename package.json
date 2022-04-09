@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/geolocation": "^2.0.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-dom-parser": "^1.5.3",
